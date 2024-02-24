@@ -38,10 +38,27 @@ public class CLI {
                     throw new IllegalArgumentException();
                 }
             }
+            StudentMainPage();
         }
         catch (Exception e){
             System.out.println("Lotfan Dorost Vared Konid");
             StudentLogIn();
+        }
+    }
+
+    void StudentMainPage(){
+        System.out.println("1-List Droos Sabtnami");
+        System.out.println("2-List Droos Erae Shode");
+        String nextLine=sc.nextLine();
+        if (nextLine.equals("1")){
+            //////////////////Show The Courses that he attended
+        }
+        else if (nextLine.equals("2")){
+            /////////////////Show the Departments
+        }
+        else {
+            System.out.println("Lotfan Adad Gozine Mored Nazar Ra Vared Konid");
+            StudentMainPage();
         }
     }
 }
