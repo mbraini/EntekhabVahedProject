@@ -67,6 +67,22 @@ public class CLI {
     }
 
     void AdminMainPage(){
-        ///////////Show Departments
+        System.out.println("Daneshkade Mored Nazar Ra Entekhab Knid");
+        for (int i=1;i<=App.dataBase.getDepartments().size();i++){
+            System.out.println(i + "-" + App.dataBase.getDepartments().get(i-1).name);
+        }
+        try {
+            int nextLine=Integer.valueOf(sc.nextLine());
+            if (nextLine>App.dataBase.getDepartments().size() || nextLine<1){
+                throw new IllegalArgumentException();
+            }
+            else {
+                ////////////////List Doroos DaneshKade
+            }
+        }
+        catch (Exception e){
+            System.out.println("Lotfan Shomare Daneshkade Mored Nazar Ra Dorost Vared Konid");
+            AdminMainPage();
+        }
     }
 }
