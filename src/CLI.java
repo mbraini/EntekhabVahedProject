@@ -10,7 +10,7 @@ public class CLI {
         System.out.println("2-Student");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
-            ////////
+            AdminLogIn();
         }
         else if (nextLine.equals("2")){
             ///////
@@ -18,6 +18,14 @@ public class CLI {
         else {
             System.out.println("Lotfan Dobare Vared Konid");
             LogIn();
+        }
+    }
+
+    void AdminLogIn(){
+        System.out.println("lotfan Nam Karbari Khod Ra Vared Konid");
+        String nextLine=sc.nextLine();
+        if (nextLine.equals("Admin")){
+            ////////////////
         }
     }
 }
