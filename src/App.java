@@ -6,7 +6,7 @@ public class App {
     App(){
         cli=new CLI();
         dataBase=new DataBase();
-        logic=new Logic();
+        logic=new Logic(dataBase);
     }
 
     public void run(){

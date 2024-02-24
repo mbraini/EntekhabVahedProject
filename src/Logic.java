@@ -1,5 +1,6 @@
 public class Logic {
-    public Logic(){
-
+    DataBase dataBase;
+    public Logic(DataBase dataBase){
+        this.dataBase=dataBase;
     }
 }
