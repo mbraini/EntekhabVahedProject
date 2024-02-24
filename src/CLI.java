@@ -13,7 +13,7 @@ public class CLI {
             AdminLogIn();
         }
         else if (nextLine.equals("2")){
-            ///////
+            StudentLogIn();
         }
         else {
             System.out.println("Lotfan Dobare Vared Konid");
@@ -26,6 +26,19 @@ public class CLI {
         String nextLine=sc.nextLine();
         if (nextLine.equals("Admin")){
             ////////////////
+        }
+    }
+
+    void StudentLogIn(){
+        System.out.println("Lotfan Shomare Daneshjooii Khod Ra Vared Konid");
+        try {
+            int ID=sc.nextInt();
+            /////////////////Add StudentLogIn  and Check LogedIn Students who Has LoggedIn Before
+        }
+        catch (Exception e){
+            System.out.println("Lotfan Dorost Vared Konid");
+            sc.next();
+            StudentLogIn();
         }
     }
 }
