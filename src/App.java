@@ -4,9 +4,9 @@ public class App {
     Logic logic;
 
     App(){
-        cli=new CLI();
         dataBase=new DataBase();
         logic=new Logic(dataBase);
+        cli=new CLI();
     }
 
     public void run(){
