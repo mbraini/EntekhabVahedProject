@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public abstract class Course {
     String name;
     String professor;
     String code;
     int size;
     int credit;
-    String ClassTime;
+    ArrayList<String> ClassTime;
     String ExamTime;
 
-    public Course(String name, String professor, String code, int size, int credit, String classTime, String examTime) {
+    public Course(String name, String professor, String code, int size, int credit, ArrayList<String> classTime, String examTime) {
         this.name = name;
         this.professor = professor;
         this.code = code;
@@ -37,7 +39,7 @@ public abstract class Course {
         return credit;
     }
 
-    public String getClassTime() {
+    public ArrayList<String> getClassTime() {
         return ClassTime;
     }
 
@@ -65,7 +67,7 @@ public abstract class Course {
         this.credit = credit;
     }
 
-    public void setClassTime(String classTime) {
+    public void setClassTime(ArrayList<String> classTime) {
         ClassTime = classTime;
     }
 

@@ -37,8 +37,17 @@ public class DataBase {
                     int size = sc.nextInt();
                     int credit = sc.nextInt();
                     sc.nextLine();
-                    String classTime = sc.nextLine().substring(3);
+                    String ClassTime = sc.nextLine().substring(3);
                     String examTime = sc.nextLine().substring(3);
+                    ArrayList<String> classTime=new ArrayList<>();
+                    for (int i=0;i<ClassTime.length();i++){
+                        if (ClassTime.charAt(i)=='/'){
+                            classTime.add(ClassTime.substring(0,i));
+                            ClassTime=ClassTime.substring(i+1);
+                            i=-1;
+                        }
+                    }
+                    classTime.add(ClassTime);
                     courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,examTime));
                 }
                 while (true) {
@@ -57,8 +66,17 @@ public class DataBase {
                     int size = sc.nextInt();
                     int credit = sc.nextInt();
                     sc.nextLine();
-                    String classTime = sc.nextLine().substring(3);
+                    String ClassTime = sc.nextLine().substring(3);
                     String examTime = sc.nextLine().substring(3);
+                    ArrayList<String> classTime=new ArrayList<>();
+                    for (int i=0;i<ClassTime.length();i++){
+                        if (ClassTime.charAt(i)=='/'){
+                            classTime.add(ClassTime.substring(0,i));
+                            ClassTime=ClassTime.substring(i+1);
+                            i=-1;
+                        }
+                    }
+                    classTime.add(ClassTime);
                     courses.add(new GeneralCourse(name,professor,code,size,credit,classTime,examTime));
                     if (!sc.hasNextLine()){
                         departments.add(new Department(depName,courses));
@@ -69,12 +87,6 @@ public class DataBase {
         }
         catch (Exception e){
 
-        }
-        for (int i=0;i<departments.size();i++){
-            System.out.println(departments.get(i).name);
-            for (int j=0;j<departments.get(i).courses.size();j++){
-                System.out.println(departments.get(i).courses.get(j).name);
-            }
         }
     }
 
