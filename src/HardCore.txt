@@ -1,0 +1,103 @@
+Department of Math:
+	Takhasosi:
+		Calculus 1:
+			Mr Najafi
+			11111
+			200
+			4
+			10:30 12:30 Sunday and Tuesday
+			8:00 1403/03/29
+		Calculus 2:
+			Mr Poornaki
+			22222
+			200
+			4
+			10:30 12:30 Saturday and Monday
+			9:00 1403/03/30
+		LinearAlgebra:
+			Mr Khanedani
+			33333
+			200
+			4
+			3:00 5:00 Saturday and Monday
+			10:00 1403/03/31
+	Omoomi:
+		Aljebra:
+			Mr X
+			44444
+			50
+			3
+			12:00 2:00
+			13:00 1403/03/19
+Department of Physics:
+	Takhasosi:
+		Physics 1:
+			Mr Kargarian
+			12345
+			200
+			4
+			18:00 20:00
+			10:00 1403/03/20
+		Physics 2:
+			Mr MahmoodAbadi
+			54321
+			300
+			3
+			17:00 19:00
+			8:00 1403/03/21
+	Omoomi:
+		PhysicKoantom:
+			Mr Y
+			54123
+			50
+			2
+			8:00 10:00
+			13:00 1403/03/22
+Department of Chemistery:
+	Takhasosi:
+		Chemistery 1:
+			Mr CH1
+			00001
+			150
+			4
+			8:00 10:00 Sunday and Tuesday
+			8:00 1403/03/23
+		Chemistery 2:
+			Mr CH2
+			00002
+			200
+			4
+			12:30 14:30 Sunday and Tuesday
+			10:00 1403/03/24
+	Omoomi:
+		Advanced-Chemistery:
+			Mr AD
+			00003
+			70
+			3
+			10:00 12:00 Sunday and Tuesday
+			8:00 1403/03/25
+Department of Computer Engineering:
+	Takhasosi:
+		AP:
+			Mr Nerd
+			12121
+			200
+			4
+			13:00 15:00 Sunday and Tuesday
+			8:00 1403/03/26
+		BP:
+			Mr Jafari
+			21212
+			200
+			4
+			9:00 11:00 Saturday and Monday
+			11:00 1403/03/28
+	Omoomi:
+		AI:
+			Mr Javadi
+			99999
+			200
+			4
+			10:30 12:30 Sunday and Tuesday
+			8:00 1403/04/01
