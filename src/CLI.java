@@ -44,13 +44,18 @@ public class CLI {
                 throw new IllegalArgumentException();
             }
             else {
-                //////////////
+                Logic.CurrentDepartment=nextLine - 1;
+                AdminGettingCoursesOfDepartment();
             }
         }
         catch (Exception e){
             System.out.println("Lotfan Shomare Daneshkade Mored Nazar Ra Dorost Vared Konid");
             AdminMainPage();
         }
+    }
+
+    void AdminGettingCoursesOfDepartment(){
+        App.logic.ShowCoursesOfDepartment();
     }
 
     void StudentLogIn(){
