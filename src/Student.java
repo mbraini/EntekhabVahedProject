@@ -7,4 +7,20 @@ public class Student {
         this.ID = ID;
         this.courses = courses;
     }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 }
