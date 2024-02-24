@@ -32,12 +32,15 @@ public class CLI {
     void StudentLogIn(){
         System.out.println("Lotfan Shomare Daneshjooii Khod Ra Vared Konid");
         try {
-            int ID=sc.nextInt();
-            /////////////////Add StudentLogIn  and Check LogedIn Students who Has LoggedIn Before
+            String ID=sc.nextLine();
+            for (int i=0;i<ID.length();i++){
+                if ((int)ID.charAt(i)<48 || (int)ID.charAt(i)>57){
+                    throw new IllegalArgumentException();
+                }
+            }
         }
         catch (Exception e){
             System.out.println("Lotfan Dorost Vared Konid");
-            sc.next();
             StudentLogIn();
         }
     }
