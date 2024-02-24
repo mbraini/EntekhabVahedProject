@@ -84,7 +84,7 @@ public class CLI {
             ShowStudentAttendedCourses();
         }
         else if (nextLine.equals("2")){
-            /////////////////Show the Departments
+            ShowDepartments();
         }
         else {
             System.out.println("Lotfan Adad Gozine Mored Nazar Ra Vared Konid");
@@ -97,5 +97,12 @@ public class CLI {
         System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
         String nextLine=sc.nextLine();
         ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////
+    }
+
+    void ShowDepartments(){
+        Logic.ShowDepartments();
+        System.out.println("Daneshkade Mored Nazar Ra Entekhab Konid");
+        String nextLine=sc.nextLine();
+        /////////////////////////////////////////////////////
     }
 }

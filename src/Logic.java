@@ -33,4 +33,10 @@ public class Logic {
         }
         System.out.println("Shoma Hich Darsi Ra Akhz Nakarde Id");
     }
+
+    static void ShowDepartments(){
+        for (int i=0;i<App.dataBase.getDepartments().size();i++){
+            System.out.println((i+1) + "-" + App.dataBase.getDepartments().get(i).name);
+        }
+    }
 }
