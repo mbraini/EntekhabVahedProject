@@ -1,7 +1,7 @@
 public class App {
     static CLI cli;
     static DataBase dataBase;
-    Logic logic;
+    static Logic logic;
 
     App(){
         dataBase=new DataBase();
