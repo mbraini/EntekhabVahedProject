@@ -27,6 +27,10 @@ public class CLI {
         if (nextLine.equals("Admin")){
             ////////////////
         }
+        else {
+            System.out.println("Nam Karbari Eshtebah Bood");
+            AdminLogIn();
+        }
     }
 
     void StudentLogIn(){
