@@ -81,7 +81,7 @@ public class CLI {
         System.out.println("2-List Droos Erae Shode");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
-            //////////////////Show The Courses that he attended
+            ShowStudentAttendedCourses();
         }
         else if (nextLine.equals("2")){
             /////////////////Show the Departments
@@ -90,5 +90,12 @@ public class CLI {
             System.out.println("Lotfan Adad Gozine Mored Nazar Ra Vared Konid");
             StudentMainPage();
         }
+    }
+
+    void ShowStudentAttendedCourses(){
+        Logic.ShowStudentCourses();
+        System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
+        String nextLine=sc.nextLine();
+        ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////
     }
 }
