@@ -67,6 +67,7 @@ public class CLI {
                     throw new IllegalArgumentException();
                 }
             }
+            App.dataBase.AddLoggedInStudent(ID);
             StudentMainPage();
         }
         catch (Exception e){

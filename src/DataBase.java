@@ -91,4 +91,15 @@ public class DataBase {
     public void setLoggedInStudents(ArrayList<Student> loggedInStudents) {
         LoggedInStudents = loggedInStudents;
     }
+
+    void AddLoggedInStudent(String ID){
+        for (int i=0;i<LoggedInStudents.size();i++){
+            if (LoggedInStudents.get(i).getID().equals(ID)){
+                Logic.CurrentStudent=i;
+                return;
+            }
+        }
+        LoggedInStudents.add(new Student(ID,new ArrayList<>()));
+        Logic.CurrentStudent=LoggedInStudents.size()-1;
+    }
 }

@@ -5,7 +5,7 @@ public class App {
 
     App(){
         dataBase=new DataBase();
-        logic=new Logic(dataBase);
+        logic=new Logic();
         cli=new CLI();
     }
 
