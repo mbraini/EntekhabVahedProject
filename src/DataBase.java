@@ -15,18 +15,28 @@ public class DataBase {
             FileInputStream fis=new FileInputStream(HardCore);
             Scanner sc=new Scanner(fis);
             while (sc.hasNextLine()){
+                String type="";
                 ArrayList<Course> courses=new ArrayList<>();
                 while (true) {
                     String nextLine=sc.nextLine();
                     String name="";
                     if (nextLine.contains("Omoomi")){
+                        type="Omoomi";
+                        continue;
+                    }
+                    else if (nextLine.contains("Department of") && courses.size()!=0){
+                        departments.add(new Department(depName,courses));
+                        depName=nextLine.substring(14,nextLine.length()-1);
+                        type="Takhasosi";
                         break;
                     }
-                    else if (nextLine.contains("Department of")){
+                    else if (nextLine.contains("Department of") && courses.size()==0){
                         depName=nextLine.substring(14,nextLine.length()-1);
+                        type="Takhasosi";
                         continue;
                     }
                     else if (nextLine.contains("Takhasosi")){
+                        type="Takhasosi";
                         continue;
                     }
                     else {
@@ -48,36 +58,12 @@ public class DataBase {
                         }
                     }
                     classTime.add(ClassTime);
-                    courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,examTime));
-                }
-                while (true) {
-                    String nextLine=sc.nextLine();
-                    String name;
-                    if (nextLine.contains("Department of")){
-                        departments.add(new Department(depName,courses));
-                        depName=nextLine.substring(14,nextLine.length()-1);
-                        break;
+                    if (type.equals("Takhasosi")){
+                        courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,examTime));
                     }
-                    else {
-                        name = nextLine.substring(2,nextLine.length()-1);
+                    else if (type.equals("Omoomi")){
+                        courses.add(new GeneralCourse(name,professor,code,size,credit,classTime,examTime));
                     }
-                    String professor = sc.nextLine().substring(3);
-                    String code = sc.nextLine().substring(3);
-                    int size = sc.nextInt();
-                    int credit = sc.nextInt();
-                    sc.nextLine();
-                    String ClassTime = sc.nextLine().substring(3);
-                    String examTime = sc.nextLine().substring(3);
-                    ArrayList<String> classTime=new ArrayList<>();
-                    for (int i=0;i<ClassTime.length();i++){
-                        if (ClassTime.charAt(i)=='/'){
-                            classTime.add(ClassTime.substring(0,i));
-                            ClassTime=ClassTime.substring(i+1);
-                            i=-1;
-                        }
-                    }
-                    classTime.add(ClassTime);
-                    courses.add(new GeneralCourse(name,professor,code,size,credit,classTime,examTime));
                     if (!sc.hasNextLine()){
                         departments.add(new Department(depName,courses));
                         break;
@@ -86,7 +72,7 @@ public class DataBase {
             }
         }
         catch (Exception e){
-
+            System.out.println("file not found");
         }
     }
 
