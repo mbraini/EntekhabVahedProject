@@ -25,7 +25,7 @@ public class CLI {
         System.out.println("lotfan Nam Karbari Khod Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("Admin")){
-            ////////////////
+            AdminMainPage();
         }
         else {
             System.out.println("Nam Karbari Eshtebah Bood");
@@ -64,5 +64,9 @@ public class CLI {
             System.out.println("Lotfan Adad Gozine Mored Nazar Ra Vared Konid");
             StudentMainPage();
         }
+    }
+
+    void AdminMainPage(){
+        ///////////Show Departments
     }
 }
