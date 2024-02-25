@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class CLI {
     private final Scanner sc=new Scanner(System.in);
@@ -56,6 +57,19 @@ public class CLI {
 
     void AdminGettingCoursesOfDepartment(){
         App.logic.ShowCoursesOfDepartment();
+        System.out.println("1-Ezafe Kardan Dars Be DaneshKade");
+        System.out.println("2-Didan Daneshjoo Hay Sabt Nami Dars");
+        String nextLine=sc.nextLine();
+        if (nextLine.equals("1")){
+            //////////////////////////////////////////////////
+        }
+        else if (nextLine.equals("2")){
+            /////////////////////////////////////////////////
+        }
+        else {
+            System.out.println("Lotfan Adad Gozine Khode Ra Vared Konid");
+            AdminGettingCoursesOfDepartment();
+        }
     }
 
     void StudentLogIn(){
