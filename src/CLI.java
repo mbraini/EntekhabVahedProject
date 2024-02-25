@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class CLI {
     private final Scanner sc=new Scanner(System.in);
-    CLI(){
-        LogIn();
+
+    public CLI() {
+
     }
 
     void LogIn(){
@@ -73,54 +74,7 @@ public class CLI {
     }
 
     void AdminAddCourseToDepartment(){
-        int size=-1,credit=-1;
-        System.out.println("Loftan Etelaat Dars Mored Nazar Ra Kamel Vared Konid");
-        System.out.println("Nam Dars :");
-        String name=sc.nextLine();
-        System.out.println("Nam Ostad :");
-        String professor=sc.nextLine();
-        System.out.println("code dars :");
-        String code=sc.nextLine();
-        try {
-            Logic.CheckTheAddedCourse(code);
-            System.out.println("zarfiat dars :");
-            size=Integer.valueOf(sc.nextLine());
-            System.out.println("tedad vahed");
-            credit=Integer.valueOf(sc.nextLine());
-        }
-        catch (NumberFormatException e){
-            System.out.println("Eshtebah Vared Kardid, Lotfan dobare Etelaat Dars Ra Vared Konid");
-            AdminAddCourseToDepartment();
-        }
-        catch (IllegalArgumentException e){
-            System.out.println("Kod Dars Tekrari Ast, Etelaat Ra Dobare Vared Konid");
-            AdminAddCourseToDepartment();
-        }
-        System.out.println("Zaman Class :");
-        String ClassTime=sc.nextLine();
-        System.out.println("Zaman Emtehan :");
-        String ExamTime=sc.nextLine();
-        ArrayList<String> classTime=new ArrayList<>();
-        for (int i=0;i<ClassTime.length();i++){
-            if (ClassTime.charAt(i)=='/'){
-                classTime.add(ClassTime.substring(0,i));
-                ClassTime=ClassTime.substring(i+1);
-                i=-1;
-            }
-        }
-        classTime.add(ClassTime);
-        System.out.println("Omoomi Ya Takhasosi :");
-        String type=sc.nextLine();
-        if (type.equals("Omoomi")){
-            App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.add(new GeneralCourse(name,professor,code,size,credit,classTime,ExamTime));
-        }
-        else if (type.equals("Takhasosi")){
-            App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,ExamTime));
-        }
-        else {
-            System.out.println("Lotfan Dorost Vared Konid Noaa Dars Ra");
-            AdminAddCourseToDepartment();
-        }
+        App.dataBase.AddCourse();
     }
 
     void StudentLogIn(){
@@ -138,6 +92,7 @@ public class CLI {
         catch (Exception e){
             System.out.println("Lotfan Dorost Vared Konid");
             StudentLogIn();
+            return;
         }
     }
 
