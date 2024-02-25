@@ -61,7 +61,7 @@ public class CLI {
         System.out.println("2-Didan Daneshjoo Hay Sabt Nami Dars");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
-            //////////////////////////////////////////////////
+            AdminAddCourseToDepartment();
         }
         else if (nextLine.equals("2")){
             /////////////////////////////////////////////////
@@ -69,6 +69,54 @@ public class CLI {
         else {
             System.out.println("Lotfan Adad Gozine Khode Ra Vared Konid");
             AdminGettingCoursesOfDepartment();
+        }
+    }
+
+    void AdminAddCourseToDepartment(){
+        int size=-1,credit=-1;
+        System.out.println("Loftan Etelaat Dars Mored Nazar Ra Kamel Vared Konid");
+        System.out.println("Nam Dars :");
+        String name=sc.nextLine();
+        System.out.println("Nam Ostad :");
+        String professor=sc.nextLine();
+        System.out.println("code dars :");
+        String code=sc.nextLine();
+        try {
+            System.out.println("zarfiat dars :");
+            size=sc.nextInt();
+            System.out.println("tedad vahed");
+            credit=sc.nextInt();
+        }
+        catch (Exception e){
+            System.out.println("Eshtebah Vared Kardid, Lotfan dobare Etelaat Dars Ra Vared Konid");
+            sc.nextLine();
+            AdminAddCourseToDepartment();
+        }
+        sc.nextLine();
+        System.out.println("Zaman Emtehan :");
+        String ExamTime=sc.nextLine();
+        System.out.println("Zaman Class :");
+        String ClassTime=sc.nextLine();
+        ArrayList<String> classTime=new ArrayList<>();
+        for (int i=0;i<ClassTime.length();i++){
+            if (ClassTime.charAt(i)=='/'){
+                classTime.add(ClassTime.substring(0,i));
+                ClassTime=ClassTime.substring(i+1);
+                i=-1;
+            }
+        }
+        classTime.add(ClassTime);
+        System.out.println("Omoomi Ya Takhasosi :");
+        String type=sc.nextLine();
+        if (type.equals("Omoomi")){
+            App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.add(new GeneralCourse(name,professor,code,size,credit,classTime,ExamTime));
+        }
+        else if (type.equals("Takhasosi")){
+            App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,ExamTime));
+        }
+        else {
+            System.out.println("Lotfan Dorost Vared Konid Noaa Dars Ra");
+            AdminAddCourseToDepartment();
         }
     }
 
