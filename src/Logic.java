@@ -39,4 +39,23 @@ public class Logic {
             System.out.println((i+1) + "-" + App.dataBase.getDepartments().get(i).name);
         }
     }
+
+    static void ShowCoursesOfDepartmentWithDetail(){
+        System.out.println("Department Of " + App.dataBase.getDepartments().get(CurrentDepartment).name + ":");
+        for (int i=0;i<App.dataBase.getDepartments().get(CurrentDepartment).courses.size();i++){
+            System.out.println("\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getName());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getProfessor());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCode());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getSize());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCredit());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime());
+            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getExamTime());
+            if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i) instanceof SpecializedCourse){
+                System.out.println("\t\t" + "Takhasosi");
+            }
+            else {
+                System.out.println("\t\t" + "Omoomi");
+            }
+        }
+    }
 }

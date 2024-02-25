@@ -102,7 +102,24 @@ public class CLI {
     void ShowDepartments(){
         Logic.ShowDepartments();
         System.out.println("Daneshkade Mored Nazar Ra Entekhab Konid");
+        try {
+            int nextLine=Integer.valueOf(sc.nextLine());
+            if (nextLine<1 || nextLine>App.dataBase.getDepartments().size()){
+                throw new IllegalArgumentException();
+            }
+            Logic.CurrentDepartment=nextLine-1;
+            ShowDepartmentCourseForStudent();
+        }
+        catch (Exception e){
+            System.out.println("Lotfan Daneshkade Mored Nazar Ra ba Vared Kardan Shomare Vared Konid");
+            ShowDepartments();
+        }
+    }
+
+    void ShowDepartmentCourseForStudent(){
+        Logic.ShowCoursesOfDepartmentWithDetail();
+        System.out.println("Lotfan Ba Vared Kardan Kod Dars, Dars Mored Nazar Ra Akhz Konid");
         String nextLine=sc.nextLine();
-        /////////////////////////////////////////////////////
+        /////////////////////////////////////////////////Akhz Logic //////////////////////////////////////
     }
 }
