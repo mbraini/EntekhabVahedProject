@@ -58,4 +58,11 @@ public class Logic {
             }
         }
     }
+
+    static void CheckTheAddedCourse(String code) throws IllegalArgumentException{
+        for (int i=0;i<App.dataBase.getDepartments().get(CurrentDepartment).courses.size();i++){
+            if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCode().equals(code))
+                throw new IllegalArgumentException();
+        }
+    }
 }

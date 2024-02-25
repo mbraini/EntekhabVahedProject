@@ -82,21 +82,24 @@ public class CLI {
         System.out.println("code dars :");
         String code=sc.nextLine();
         try {
+            Logic.CheckTheAddedCourse(code);
             System.out.println("zarfiat dars :");
-            size=sc.nextInt();
+            size=Integer.valueOf(sc.nextLine());
             System.out.println("tedad vahed");
-            credit=sc.nextInt();
+            credit=Integer.valueOf(sc.nextLine());
         }
-        catch (Exception e){
+        catch (NumberFormatException e){
             System.out.println("Eshtebah Vared Kardid, Lotfan dobare Etelaat Dars Ra Vared Konid");
-            sc.nextLine();
             AdminAddCourseToDepartment();
         }
-        sc.nextLine();
-        System.out.println("Zaman Emtehan :");
-        String ExamTime=sc.nextLine();
+        catch (IllegalArgumentException e){
+            System.out.println("Kod Dars Tekrari Ast, Etelaat Ra Dobare Vared Konid");
+            AdminAddCourseToDepartment();
+        }
         System.out.println("Zaman Class :");
         String ClassTime=sc.nextLine();
+        System.out.println("Zaman Emtehan :");
+        String ExamTime=sc.nextLine();
         ArrayList<String> classTime=new ArrayList<>();
         for (int i=0;i<ClassTime.length();i++){
             if (ClassTime.charAt(i)=='/'){
