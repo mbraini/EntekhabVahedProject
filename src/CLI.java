@@ -53,6 +53,7 @@ public class CLI {
         catch (Exception e){
             System.out.println("Lotfan Shomare Daneshkade Mored Nazar Ra Dorost Vared Konid");
             AdminMainPage();
+            return;
         }
     }
 
@@ -133,6 +134,7 @@ public class CLI {
         catch (Exception e){
             System.out.println("Lotfan Daneshkade Mored Nazar Ra ba Vared Kardan Shomare Vared Konid");
             ShowDepartments();
+            return;
         }
     }
 
