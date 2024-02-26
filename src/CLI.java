@@ -68,7 +68,7 @@ public class CLI {
             AdminAddCourseToDepartment();
         }
         else if (nextLine.equals("2")){
-            /////////////////////////////////////////////////
+            App.dataBase.RemoveCourse();
         }
         else if (nextLine.equals("3")){
             /////////////////////////////////////////////////
@@ -84,10 +84,6 @@ public class CLI {
 
     void AdminAddCourseToDepartment(){
         App.dataBase.AddCourse();
-    }
-
-    void AdminChooseCourse(){
-
     }
 
     void StudentLogIn(){

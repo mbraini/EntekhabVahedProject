@@ -168,4 +168,29 @@ public class DataBase {
             App.cli.AdminGettingCoursesOfDepartment();
         }
     }
+
+    void RemoveCourse(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Baray Hazf Dars, Naam Dars Ra Vared Konid");
+        String nextLine=sc.nextLine();
+        for (int i=0;i<departments.get(Logic.CurrentDepartment).courses.size();i++){
+            if (departments.get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)){
+                departments.get(Logic.CurrentDepartment).courses.remove(i);
+                System.out.println("Dars Ba Movafaghiat Hazf Shod");
+                System.out.println("1-Hazf Dars Digar Az Daneshkade");
+                System.out.println("2-Bazgasht Be Meno Ghabl");
+                nextLine=sc.nextLine();
+                if (nextLine.equals("1")){
+                    RemoveCourse();
+                    return;
+                }
+                else {
+                    App.cli.AdminGettingCoursesOfDepartment();
+                    return;
+                }
+            }
+        }
+        System.out.println("Naam Dars Yaft Nashod!");
+        RemoveCourse();
+    }
 }
