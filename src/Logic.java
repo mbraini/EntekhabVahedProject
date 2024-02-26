@@ -40,17 +40,17 @@ public class Logic {
         System.out.println("Department Of " + App.dataBase.getDepartments().get(CurrentDepartment).name + ":");
         for (int i=0;i<App.dataBase.getDepartments().get(CurrentDepartment).courses.size();i++){
             System.out.println("\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getName());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getProfessor());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCode());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getSize());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCredit());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime());
-            System.out.println("\t\t" + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getExamTime());
+            System.out.println("\t\t" + "Naam Ostad : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getProfessor());
+            System.out.println("\t\t" + "Code : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCode());
+            System.out.println("\t\t" + "Zarfiat : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getSize());
+            System.out.println("\t\t" + "Tedad Vahed : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCredit());
+            System.out.println("\t\t" + "Zaman Class : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime());
+            System.out.println("\t\t" + "Zaman Emtehan : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getExamTime());
             if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i) instanceof SpecializedCourse){
-                System.out.println("\t\t" + "Takhasosi");
+                System.out.println("\t\t" + "Noa Dars : " + "Takhasosi");
             }
             else {
-                System.out.println("\t\t" + "Omoomi");
+                System.out.println("\t\t" + "Noa Dars : " + "Omoomi");
             }
         }
     }
