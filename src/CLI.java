@@ -115,9 +115,14 @@ public class CLI {
 
     void ShowStudentAttendedCourses(){
         Logic.ShowStudentCourses();
-        System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
+        if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.isEmpty()){
+            System.out.println("Shoma Darsi Ra Akhz Nakarde Id , Lotfan Kalame Back Ra type Konid");
+        }
+        else {
+            System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
+        }
         String nextLine=sc.nextLine();
-        ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////
+        ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////////////
     }
 
     void ShowDepartments(){

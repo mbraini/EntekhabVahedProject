@@ -27,11 +27,7 @@ public class Logic {
             else {
                 System.out.println("\t" + "Omoomi");
             }
-
-            if (i+1==App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.size())
-                return;
         }
-        System.out.println("Shoma Hich Darsi Ra Akhz Nakarde Id");
     }
 
     static void ShowDepartments(){
