@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public abstract class Course {
-    String name;
-    String professor;
-    String code;
-    int size;
-    int credit;
-    ArrayList<String> ClassTime;
-    String ExamTime;
+    private String name;
+    private String professor;
+    private String code;
+    private int size;
+    private int credit;
+    private ArrayList<String> ClassTime;
+    private String ExamTime;
 
     public Course(String name, String professor, String code, int size, int credit, ArrayList<String> classTime, String examTime) {
         this.name = name;

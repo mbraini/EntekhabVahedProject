@@ -74,7 +74,7 @@ public class CLI {
             /////////////////////////////////////////////////
         }
         else if (nextLine.equals("4")){
-            /////////////////////////////////////////////////
+            AdminSizeP();
         }
         else {
             System.out.println("Lotfan Adad Gozine Khode Ra Vared Konid");
@@ -84,6 +84,38 @@ public class CLI {
 
     void AdminAddCourseToDepartment(){
         App.dataBase.AddCourse();
+    }
+
+    void AdminSizeP(){
+        System.out.println("Lotfan Naam Dars Ra Baray Afzayesh Zarfiat Vared Konid");
+        String nextLine=sc.nextLine();
+        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)){
+                try {
+                    System.out.println("Afzayesh Zarfiat Be Meghdar :");
+                    int SizeP=Integer.valueOf(sc.nextLine());
+                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getSize()+SizeP);
+                    System.out.println("Afzayesh Zarfiat Ba Movafaghiat Anjam Shod");
+                    System.out.println("1-Afzayesh Zarfiat Dars Digar");
+                    System.out.println("2-Bazgasht Be Meno Ghabl");
+                    nextLine=sc.nextLine();
+                    if (nextLine.equals("1")){
+                        AdminSizeP();
+                        return;
+                    }
+                    else {
+                        AdminGettingCoursesOfDepartment();
+                        return;
+                    }
+                }
+                catch (Exception e){
+                    System.out.println("Eshtebah Vared Kardid");
+                    i--;
+                }
+            }
+        }
+        System.out.println("Naam Dars Ra Dorost Vared Konid");
+        AdminSizeP();
     }
 
     void StudentLogIn(){
