@@ -60,12 +60,20 @@ public class CLI {
     void AdminGettingCoursesOfDepartment(){
         App.logic.ShowCoursesOfDepartment();
         System.out.println("1-Ezafe Kardan Dars Be DaneshKade");
-        System.out.println("2-Didan Daneshjoo Hay Sabt Nami Dars");
+        System.out.println("2-Hazf Dars Az Daneshkade");
+        System.out.println("3-Entekhab Dars Va Didan Daneshjoohay Sabtnami");
+        System.out.println("4-Afzayesh Zarfiat Dars");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
             AdminAddCourseToDepartment();
         }
         else if (nextLine.equals("2")){
+            /////////////////////////////////////////////////
+        }
+        else if (nextLine.equals("3")){
+            /////////////////////////////////////////////////
+        }
+        else if (nextLine.equals("4")){
             /////////////////////////////////////////////////
         }
         else {
@@ -76,6 +84,10 @@ public class CLI {
 
     void AdminAddCourseToDepartment(){
         App.dataBase.AddCourse();
+    }
+
+    void AdminChooseCourse(){
+
     }
 
     void StudentLogIn(){

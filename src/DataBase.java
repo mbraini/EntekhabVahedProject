@@ -156,6 +156,7 @@ public class DataBase {
             AddCourse();
             return;
         }
+        System.out.println("Dars Jadid Sabt Shod");
         System.out.println("1-Ezafe Kardan Dars Jadid");
         System.out.println("2-Bargasht Be Safhe Ghabl");
         String nextLine=sc.nextLine();
