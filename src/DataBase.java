@@ -100,7 +100,6 @@ public class DataBase {
             }
         }
         LoggedInStudents.add(new Student(ID,new ArrayList<>()));
-        Logic.CurrentStudent=LoggedInStudents.size()-1;
     }
 
     void AddCourse(){
@@ -204,4 +203,6 @@ public class DataBase {
             }
         }
     }
+
+
 }

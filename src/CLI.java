@@ -104,10 +104,31 @@ public class CLI {
         System.out.println("2-Hazf Daneshjoo Az Dars");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
-            ////////////////////////
+            AdminAddStudentToTheCourse();
         }
         else if (nextLine.equals("2")){
             //////////////////////
+        }
+        else {
+            AdminCheckStudents();
+        }
+    }
+
+    void AdminAddStudentToTheCourse(){
+        System.out.println("Baray Ezafe Kardan Daneshjoo Be Dars, Shomare Daneshjooii Mored Nazar Ra Vared Konid");
+        String nextLine=sc.nextLine();
+        App.dataBase.AddLoggedInStudent(nextLine);
+        for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
+            if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
+                App.dataBase.getLoggedInStudents().get(i).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
+            }
+        }
+        System.out.println("Daneshjoo Mored Nazar Ba Movafaghiat Be Dars Ezafe Shod");
+        System.out.println("1-Ezafe Kardan Daneshjoo Digar");
+        System.out.println("2-Bazgasht Be Meno Ghabl");
+        nextLine=sc.nextLine();
+        if (nextLine.equals("1")){
+            AdminAddStudentToTheCourse();
         }
         else {
             AdminCheckStudents();
@@ -156,7 +177,13 @@ public class CLI {
                 }
             }
             App.dataBase.AddLoggedInStudent(ID);
-            StudentMainPage();
+            for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
+                if (App.dataBase.getLoggedInStudents().get(i).getID().equals(ID)){
+                    Logic.CurrentStudent=App.dataBase.getLoggedInStudents().size()-1;
+                    StudentMainPage();
+                    return;
+                }
+            }
         }
         catch (Exception e){
             System.out.println("Lotfan Dorost Vared Konid");
