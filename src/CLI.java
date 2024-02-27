@@ -71,7 +71,7 @@ public class CLI {
             App.dataBase.RemoveCourse();
         }
         else if (nextLine.equals("3")){
-            /////////////////////////////////////////////////
+            AdminChooseCourseToCheckStudents();
         }
         else if (nextLine.equals("4")){
             AdminSizeP();
@@ -84,6 +84,34 @@ public class CLI {
 
     void AdminAddCourseToDepartment(){
         App.dataBase.AddCourse();
+    }
+
+    void AdminChooseCourseToCheckStudents(){
+        System.out.println("Naam Dars Mored Nazar Ra Vared Konid");
+        String nextLine=sc.nextLine();
+        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)) {
+                Logic.CurrentCourse=i;
+                AdminCheckStudents();
+                return;
+            }
+        }
+    }
+
+    void AdminCheckStudents(){
+        App.dataBase.ShowLoggedInStudentsForTheCourse();
+        System.out.println("1-Ezafe Kardan Daneshjoo Be Dars");
+        System.out.println("2-Hazf Daneshjoo Az Dars");
+        String nextLine=sc.nextLine();
+        if (nextLine.equals("1")){
+            ////////////////////////
+        }
+        else if (nextLine.equals("2")){
+            //////////////////////
+        }
+        else {
+            AdminCheckStudents();
+        }
     }
 
     void AdminSizeP(){

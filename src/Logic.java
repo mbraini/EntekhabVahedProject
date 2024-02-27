@@ -1,6 +1,7 @@
 public class Logic {
     static int CurrentDepartment=-1;
     static int CurrentStudent=-1;
+    static int CurrentCourse=-1;
     Logic(){
 
     }

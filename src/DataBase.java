@@ -193,4 +193,15 @@ public class DataBase {
         System.out.println("Naam Dars Yaft Nashod!");
         RemoveCourse();
     }
+
+    void ShowLoggedInStudentsForTheCourse(){
+        System.out.println(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName() + " Students :");
+        for (int i=0;i<LoggedInStudents.size();i++){
+            for (int j=0;j<LoggedInStudents.get(i).courses.size();j++){
+                if (LoggedInStudents.get(i).courses.get(j).getName().equals(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName())){
+                    System.out.println("Daneshjoo Ba Shomare Daneshjooii :" + LoggedInStudents.get(i).getID());
+                }
+            }
+        }
+    }
 }
