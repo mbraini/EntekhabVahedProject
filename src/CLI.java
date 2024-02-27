@@ -107,7 +107,7 @@ public class CLI {
             AdminAddStudentToTheCourse();
         }
         else if (nextLine.equals("2")){
-            //////////////////////
+            AdminRemoveStudentFromTheCourse();
         }
         else {
             AdminCheckStudents();
@@ -133,6 +133,35 @@ public class CLI {
         else {
             AdminCheckStudents();
         }
+    }
+
+    void AdminRemoveStudentFromTheCourse(){
+        System.out.println("Baray Hazf Kardan Daneshjoo Az Dars, Shomare Daneshjooii Mored Nazar Ra Vared Konid");
+        String nextLine=sc.nextLine();
+        for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
+            if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
+                for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
+                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                        App.dataBase.getLoggedInStudents().get(i).courses.remove(j);
+                        System.out.println("Hazf Daneshjoo Az Dars Ba Movafaghiat Anjam Shod");
+                        System.out.println("1-Hazf Daneshjoo Digar");
+                        System.out.println("2-Bazgasht Be Meno Ghabl");
+                        nextLine=sc.nextLine();
+                        if (nextLine.equals("1")){
+                            AdminRemoveStudentFromTheCourse();
+                        }
+                        else {
+                            AdminCheckStudents();
+                        }
+                        return;
+                    }
+                }
+                System.out.println("Daneshjoo Mored Nazar In Dars Ra Akhz Nakarde");
+                AdminRemoveStudentFromTheCourse();
+            }
+        }
+        System.out.println("Daneshjoo Mored Nazar In Dars Ra Akhz Nakarde");
+        AdminRemoveStudentFromTheCourse();
     }
 
     void AdminSizeP(){
