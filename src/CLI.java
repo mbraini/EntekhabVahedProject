@@ -96,6 +96,8 @@ public class CLI {
                 return;
             }
         }
+        System.out.println("Dars Mored Nazar Yaft Nashod");
+        AdminChooseCourseToCheckStudents();
     }
 
     void AdminCheckStudents(){
@@ -120,6 +122,12 @@ public class CLI {
         App.dataBase.AddLoggedInStudent(nextLine);
         for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
             if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
+                for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
+                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                        App.dataBase.getLoggedInStudents().get(i).courses.remove(j);
+                        break;
+                    }
+                }
                 App.dataBase.getLoggedInStudents().get(i).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
             }
         }
