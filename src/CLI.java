@@ -286,6 +286,7 @@ public class CLI {
                 return;
             }
         }
+        System.out.println("Kod Dars Yaft Nashod");
         ShowDepartmentCourseForStudent();
     }
 
@@ -297,7 +298,7 @@ public class CLI {
                 return;
             }
         }
-        if (Logic.CheckSizeForAttend()){
+        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend()){
             App.dataBase.AttendCourse();
         }
     }

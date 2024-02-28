@@ -72,4 +72,17 @@ public class Logic {
         }
         return false;
     }
+
+    static boolean CheckGeneralCourseForAttend(){
+        int Count=0;
+        Count=Count+App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getCredit();
+        for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentDepartment).getCourses().size();i++){
+            if (App.dataBase.getLoggedInStudents().get(CurrentDepartment).getCourses().get(i) instanceof GeneralCourse)
+                Count++;
+        }
+        if (Count>5){
+            return false;
+        }
+        return true;
+    }
 }

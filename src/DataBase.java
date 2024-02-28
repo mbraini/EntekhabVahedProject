@@ -208,7 +208,6 @@ public class DataBase {
         App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).AddCurrentSize();
         LoggedInStudents.get(Logic.CurrentStudent).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
         System.out.println("Dars Mored Nazar Ba Movafaghiat Akhz Shod");
-        System.out.println(LoggedInStudents.get(Logic.CurrentStudent).courses.size());
         System.out.println("1-Akhz Dars Digar");
         System.out.println("2-Bazgasht Be Meno Ghabl");
         Scanner sc=new Scanner(System.in);
