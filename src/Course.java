@@ -8,6 +8,7 @@ public abstract class Course {
     private int credit;
     private ArrayList<String> ClassTime;
     private String ExamTime;
+    private int CurrentSize;
 
     public Course(String name, String professor, String code, int size, int credit, ArrayList<String> classTime, String examTime) {
         this.name = name;
@@ -17,6 +18,7 @@ public abstract class Course {
         this.credit = credit;
         ClassTime = classTime;
         ExamTime = examTime;
+        CurrentSize=0;
     }
 
     public String getName() {
@@ -73,5 +75,16 @@ public abstract class Course {
 
     public void setExamTime(String examTime) {
         ExamTime = examTime;
+    }
+
+    public int getCurrentSize() {
+        return CurrentSize;
+    }
+
+    public void setCurrentSize(int currentSize) {
+        CurrentSize = currentSize;
+    }
+    public void AddCurrentSize(){
+        CurrentSize++;
     }
 }

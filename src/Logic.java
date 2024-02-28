@@ -62,4 +62,14 @@ public class Logic {
                 throw new IllegalArgumentException();
         }
     }
+
+    static boolean CheckSizeForAttend(){
+        if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getCurrentSize()<App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getSize()){
+            return true;
+        }
+        else {
+            ShowDepartments();
+        }
+        return false;
+    }
 }

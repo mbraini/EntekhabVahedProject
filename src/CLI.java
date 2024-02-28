@@ -279,6 +279,26 @@ public class CLI {
         Logic.ShowCoursesOfDepartmentWithDetail();
         System.out.println("Lotfan Ba Vared Kardan Kod Dars, Dars Mored Nazar Ra Akhz Konid");
         String nextLine=sc.nextLine();
-        /////////////////////////////////////////////////Akhz Logic //////////////////////////////////////
+        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
+                Logic.CurrentCourse=i;
+                StudentAttendCourse();
+                return;
+            }
+        }
+        ShowDepartmentCourseForStudent();
+    }
+
+    void StudentAttendCourse(){
+        for (int i=0;i<App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.size();i++){
+            if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.get(i).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                System.out.println("Shoma Ghablan In Dars Ra Akhz Karde Id");
+                ShowDepartmentCourseForStudent();
+                return;
+            }
+        }
+        if (Logic.CheckSizeForAttend()){
+            App.dataBase.AttendCourse();
+        }
     }
 }
