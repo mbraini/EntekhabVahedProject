@@ -267,6 +267,7 @@ public class CLI {
             }
             Logic.CurrentDepartment=nextLine-1;
             ShowDepartmentCourseForStudent();
+            return;
         }
         catch (Exception e){
             System.out.println("Lotfan Daneshkade Mored Nazar Ra ba Vared Kardan Shomare Vared Konid");
@@ -298,7 +299,8 @@ public class CLI {
                 return;
             }
         }
-        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend()){
+        System.out.println("daljfkldshgjsdhjfghsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend() && Logic.CourseCreditLimitation()){
             App.dataBase.AttendCourse();
         }
     }
