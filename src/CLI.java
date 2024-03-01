@@ -299,9 +299,11 @@ public class CLI {
                 return;
             }
         }
-        System.out.println("daljfkldshgjsdhjfghsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend() && Logic.CourseCreditLimitation()){
+        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend() && Logic.CourseCreditLimitation() && Logic.CourseClassInterference()){
             App.dataBase.AttendCourse();
+        }
+        else {
+            /////////////////////////////////////////////////
         }
     }
 }

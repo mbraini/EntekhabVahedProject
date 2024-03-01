@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Logic {
     static int CurrentDepartment=-1;
     static int CurrentStudent=-1;
@@ -96,5 +98,63 @@ public class Logic {
             return false;
         }
         return true;
+    }
+
+    static boolean CourseClassInterference(){
+        for (int i=0;i<App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getClassTime().size();i++){
+            String time=App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getClassTime().get(i);
+            String start=time.substring(0,time.indexOf(" "));
+            time=time.substring(time.indexOf(" ")+1);
+            time=time.substring(time.indexOf(" ")+1);
+            String end=time.substring(0,time.indexOf(" "));
+            time=time.substring(time.indexOf(" ")+1);
+            String day=time;
+            for (int j=0;j<App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.size();j++){
+                for (int k=0;k<App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(j).getClassTime().size();k++) {
+                    time = App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(j).getClassTime().get(k);
+                    String start2=time.substring(0,time.indexOf(" "));
+                    time=time.substring(time.indexOf(" ")+1);
+                    time=time.substring(time.indexOf(" ")+1);
+                    String end2=time.substring(0,time.indexOf(" "));
+                    time=time.substring(time.indexOf(" ")+1);
+                    String day2=time;
+                    if (day.equals(day2)) {
+                        ArrayList<String> T1 = TimeHelper(start, end);
+                        ArrayList<String> T2 = TimeHelper(start2, end2);
+                        int flag = T1.size();
+                        T1.removeAll(T2);
+                        if (T1.size() != flag) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    static ArrayList<String> TimeHelper(String start,String end){
+        int hour=Integer.valueOf(start.substring(0,start.indexOf(':')));
+        int min=Integer.valueOf(start.substring(start.indexOf(':')+1));
+        ArrayList<String> answer=new ArrayList<>();
+        while (!start.equals(end)){
+            answer.add(start);
+            String a="";
+            min+=1;
+            if (min==60){
+                min=0;
+                hour+=1;
+            }
+            if (hour==24){
+                hour=0;
+            }
+            a+=hour + ":";
+            if (min<10){
+                a+="0";
+            }
+            a+=min;
+            start=a;
+        }
+        return answer;
     }
 }
