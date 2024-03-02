@@ -77,7 +77,8 @@ public class Logic {
 
     static boolean CheckGeneralCourseForAttend(){
         int Count=0;
-        Count=Count+App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getCredit();
+        if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse) instanceof GeneralCourse)
+            Count=Count+App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getCredit();
         for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().size();i++){
             if (App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i) instanceof GeneralCourse)
                 Count++;
