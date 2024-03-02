@@ -299,7 +299,7 @@ public class CLI {
                 return;
             }
         }
-        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend() && Logic.CourseCreditLimitation() && Logic.CourseClassInterference()){
+        if (Logic.CheckSizeForAttend() && Logic.CheckGeneralCourseForAttend() && Logic.CourseCreditLimitation() && Logic.CourseClassInterference() && Logic.CourseExamInterference()){
             App.dataBase.AttendCourse();
         }
         else {

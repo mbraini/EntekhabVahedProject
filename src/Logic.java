@@ -157,4 +157,33 @@ public class Logic {
         }
         return answer;
     }
+
+    static boolean CourseExamInterference(){
+        String exam = App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getExamTime();
+        String start=exam.substring(0,exam.indexOf(" "));
+        exam=exam.substring(exam.indexOf(" ")+1);
+        exam=exam.substring(exam.indexOf(" ")+1);
+        String end=exam.substring(0,exam.indexOf(" "));
+        exam=exam.substring(exam.indexOf(" ")+1);
+        String day=exam;
+        for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.size();i++){
+            exam = App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime();
+            String start2=exam.substring(0,exam.indexOf(" "));
+            exam=exam.substring(exam.indexOf(" ")+1);
+            exam=exam.substring(exam.indexOf(" ")+1);
+            String end2=exam.substring(0,exam.indexOf(" "));
+            exam=exam.substring(exam.indexOf(" ")+1);
+            String day2=exam;
+            if (day.equals(day2)){
+                ArrayList<String> T1 = TimeHelper(start, end);
+                ArrayList<String> T2 = TimeHelper(start2, end2);
+                int flag = T1.size();
+                T1.removeAll(T2);
+                if (T1.size() != flag) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

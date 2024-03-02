@@ -6,21 +6,21 @@ Department of Math:
 			200
 			4
 			10:30 to 12:30 Sunday/10:30 to 12:30 Tuesday
-			8:00 1403/03/29
+			8:00 to 11:00 1403/03/29
 		Calculus 2:
 			Mr Poornaki
 			22222
 			200
 			4
 			10:30 to 12:30 Saturday/10:30 to 12:30 Monday
-			9:00 1403/03/30
+			9:00 to 12:00 1403/03/30
 		LinearAlgebra:
 			Mr Khanedani
 			33333
 			200
 			4
 			15:00 to 17:00 Saturday/15:00 to 17:00 Monday
-			10:00 1403/03/31
+			10:00 to 13:00 1403/03/31
 	Omoomi:
 		Aljebra:
 			Mr X
@@ -28,7 +28,7 @@ Department of Math:
 			50
 			3
 			12:00 to 14:00 Sunday/12:00 to 14:00 Monday 
-			13:00 1403/03/19
+			13:00 to 15:00 1403/03/19
 Department of Physics:
 	Takhasosi:
 		Physics 1:
@@ -37,14 +37,14 @@ Department of Physics:
 			200
 			4
 			18:00 to 20:00 Thursday/18:00 to 20:00 Sunday
-			10:00 1403/03/20
+			10:00 to 13:00 1403/03/20
 		Physics 2:
 			Mr MahmoodAbadi
 			54321
 			300
 			3
 			17:00 to 19:00 Tuesday/17:00 to 19:00 Thursday
-			8:00 1403/03/21
+			8:00 to 11:00 1403/03/21
 	Omoomi:
 		PhysicKoantom:
 			Mr Y
@@ -52,7 +52,7 @@ Department of Physics:
 			50
 			2
 			8:00 to 10:00 Sunday/8:00 to 10:00 Wednesday
-			13:00 1403/03/22
+			13:00 to 17:00 1403/03/22
 Department of Chemistery:
 	Takhasosi:
 		Chemistery 1:
@@ -61,14 +61,14 @@ Department of Chemistery:
 			150
 			4
 			8:00 to 10:00 Sunday/8:00 to 10:00 Tuesday
-			8:00 1403/03/23
+			8:00 to 12:00 1403/03/23
 		Chemistery 2:
 			Mr CH2
 			00002
 			200
 			4
 			12:30 to 14:30 Sunday/12:30 to 14:30 Tuesday
-			10:00 1403/03/24
+			10:00 to 13:00 1403/03/24
 	Omoomi:
 		Advanced-Chemistery:
 			Mr AD
@@ -76,7 +76,7 @@ Department of Chemistery:
 			70
 			3
 			10:00 to 12:00 Sunday/10:00 to 12:00 Tuesday
-			8:00 1403/03/25
+			8:00 to 10:00 1403/03/25
 Department of Computer Engineering:
 	Takhasosi:
 		AP:
@@ -85,14 +85,14 @@ Department of Computer Engineering:
 			200
 			4
 			13:00 to 15:00 Sunday/13:00 to 15:00 Tuesday
-			8:00 1403/03/26
+			8:00 to 11:00 1403/03/26
 		BP:
 			Mr Jafari
 			21212
 			200
 			4
 			9:00 to 11:00 Saturday/9:00 to 11:00 Monday
-			11:00 1403/03/28
+			11:00 to 13:00 1403/03/28
 	Omoomi:
 		AI:
 			Mr Javadi
@@ -100,4 +100,4 @@ Department of Computer Engineering:
 			200
 			4
 			10:30 to 12:30 Sunday/10:30 to 12:30 Tuesday
-			8:00 1403/04/01
+			8:00 to 11:00 1403/04/01
