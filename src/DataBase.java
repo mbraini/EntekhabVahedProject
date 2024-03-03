@@ -108,16 +108,59 @@ public class DataBase {
         System.out.println("Loftan Etelaat Dars Mored Nazar Ra Kamel Vared Konid");
         System.out.println("Nam Dars :");
         String name=sc.nextLine();
+        if (name.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (name.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         System.out.println("Nam Ostad :");
         String professor=sc.nextLine();
+        if (professor.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (professor.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         System.out.println("code dars :");
         String code=sc.nextLine();
+        if (code.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (code.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         try {
+            String nextLine;
             Logic.CheckTheAddedCourse(code);
             System.out.println("zarfiat dars :");
-            size=Integer.valueOf(sc.nextLine());
+            nextLine=sc.nextLine();
+            if (nextLine.equals("back")){
+                App.cli.AdminGettingCoursesOfDepartment();
+                return;
+            }
+            else if (nextLine.equals("cancel")){
+                App.cli.LogIn();
+                return;
+            }
+            size=Integer.valueOf(nextLine);
             System.out.println("tedad vahed");
-            credit=Integer.valueOf(sc.nextLine());
+            nextLine=sc.nextLine();
+            if (nextLine.equals("back")){
+                App.cli.AdminGettingCoursesOfDepartment();
+                return;
+            }
+            else if (nextLine.equals("cancel")){
+                App.cli.LogIn();
+                return;
+            }
+            credit=Integer.valueOf(nextLine);
         }
         catch (NumberFormatException e){
             System.out.println("Eshtebah Vared Kardid, Lotfan dobare Etelaat Dars Ra Vared Konid");
@@ -131,8 +174,24 @@ public class DataBase {
         }
         System.out.println("Zaman Class :");
         String ClassTime=sc.nextLine();
+        if (ClassTime.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (ClassTime.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         System.out.println("Zaman Emtehan :");
         String ExamTime=sc.nextLine();
+        if (ExamTime.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (ExamTime.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         ArrayList<String> classTime=new ArrayList<>();
         for (int i=0;i<ClassTime.length();i++){
             if (ClassTime.charAt(i)=='/'){
@@ -150,6 +209,14 @@ public class DataBase {
         else if (type.equals("Takhasosi")){
             App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.add(new SpecializedCourse(name,professor,code,size,credit,classTime,ExamTime));
         }
+        else if (type.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (type.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         else {
             System.out.println("Lotfan Dorost Vared Konid Noaa Dars Ra");
             AddCourse();
@@ -163,6 +230,14 @@ public class DataBase {
             AddCourse();
             return;
         }
+        else if (nextLine.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         else {
             App.cli.AdminGettingCoursesOfDepartment();
         }
@@ -172,6 +247,14 @@ public class DataBase {
         Scanner sc=new Scanner(System.in);
         System.out.println("Baray Hazf Dars, Naam Dars Ra Vared Konid");
         String nextLine=sc.nextLine();
+        if (nextLine.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
         for (int i=0;i<departments.get(Logic.CurrentDepartment).courses.size();i++){
             if (departments.get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)){
                 departments.get(Logic.CurrentDepartment).courses.remove(i);
@@ -181,6 +264,14 @@ public class DataBase {
                 nextLine=sc.nextLine();
                 if (nextLine.equals("1")){
                     RemoveCourse();
+                    return;
+                }
+                else if (nextLine.equals("back")){
+                    App.cli.AdminGettingCoursesOfDepartment();
+                    return;
+                }
+                else if (nextLine.equals("cancel")){
+                    App.cli.LogIn();
                     return;
                 }
                 else {
