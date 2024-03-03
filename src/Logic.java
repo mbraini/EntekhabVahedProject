@@ -81,7 +81,7 @@ public class Logic {
             Count=Count+App.dataBase.getDepartments().get(CurrentDepartment).courses.get(CurrentCourse).getCredit();
         for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().size();i++){
             if (App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i) instanceof GeneralCourse)
-                Count++;
+                Count+=App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).getCredit();
         }
         if (Count>5){
             return false;
