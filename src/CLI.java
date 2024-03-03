@@ -10,11 +10,15 @@ public class CLI {
     void LogIn(){
         System.out.println("1-Admin");
         System.out.println("2-Student");
+        System.out.println("Lotfan Moshakhas Konid Ba Kodam Onvan Vared Mishavid");
+        System.out.println("Dar Tool Barname Ba Vared Kardan \"cancel\" Mitavanid Be In Safhe Bargardid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
+            System.out.println("Dar Tool Barname Ba Vared Kardan \"cancel\" Mitavanid Be In Safhe Bargardid");
             AdminLogIn();
         }
         else if (nextLine.equals("2")){
+            System.out.println("Dar Tool Barname Ba Vared Kardan \"back\" Mitavanid Be Safhe Ghabl Bargardid");
             StudentLogIn();
         }
         else {
