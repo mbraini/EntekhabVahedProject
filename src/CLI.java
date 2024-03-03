@@ -314,6 +314,14 @@ public class CLI {
         System.out.println("Lotfan Shomare Daneshjooii Khod Ra Vared Konid");
         try {
             String ID=sc.nextLine();
+            if (ID.equals("back")){
+                LogIn();
+                return;
+            }
+            else if (ID.equals("cancel")){
+                LogIn();
+                return;
+            }
             for (int i=0;i<ID.length();i++){
                 if ((int)ID.charAt(i)<48 || (int)ID.charAt(i)>57){
                     throw new IllegalArgumentException();
@@ -345,6 +353,14 @@ public class CLI {
         else if (nextLine.equals("2")){
             ShowDepartments();
         }
+        else if (nextLine.equals("back")){
+            StudentLogIn();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            LogIn();
+            return;
+        }
         else {
             System.out.println("Lotfan Adad Gozine Mored Nazar Ra Vared Konid");
             StudentMainPage();
@@ -360,6 +376,14 @@ public class CLI {
             System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
         }
         String nextLine=sc.nextLine();
+        if (nextLine.equals("back")){
+            StudentMainPage();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            LogIn();
+            return;
+        }
         ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////////////
     }
 
@@ -367,7 +391,16 @@ public class CLI {
         Logic.ShowDepartments();
         System.out.println("Daneshkade Mored Nazar Ra Entekhab Konid");
         try {
-            int nextLine=Integer.valueOf(sc.nextLine());
+            String NextLine=sc.nextLine();
+            if (NextLine.equals("back")){
+                StudentMainPage();
+                return;
+            }
+            else if (NextLine.equals("cancel")){
+                LogIn();
+                return;
+            }
+            int nextLine=Integer.valueOf(NextLine);
             if (nextLine<1 || nextLine>App.dataBase.getDepartments().size()){
                 throw new IllegalArgumentException();
             }
@@ -386,6 +419,14 @@ public class CLI {
         Logic.ShowCoursesOfDepartmentWithDetail();
         System.out.println("Lotfan Ba Vared Kardan Kod Dars, Dars Mored Nazar Ra Akhz Konid");
         String nextLine=sc.nextLine();
+        if (nextLine.equals("back")){
+            ShowDepartments();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            LogIn();
+            return;
+        }
         for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
             if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
                 Logic.CurrentCourse=i;

@@ -305,9 +305,19 @@ public class DataBase {
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
             App.cli.ShowDepartmentCourseForStudent();
+            return;
+        }
+        else if (nextLine.equals("back")){
+            App.cli.ShowDepartmentCourseForStudent();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            App.cli.LogIn();
+            return;
         }
         else {
             App.cli.ShowDepartments();
+            return;
         }
     }
 }
