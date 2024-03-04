@@ -450,7 +450,25 @@ public class CLI {
             App.dataBase.AttendCourse();
         }
         else {
-            /////////////////////////////////////////////////
+            System.out.println("Shoma Nemitavanid Dars Ra Akhz Konid");
+            System.out.println("1-Akhz Dars Digar");
+            System.out.println("2-Bazgasht Be Meno Ghabl");
+            String nextLine=sc.nextLine();
+            if (nextLine.equals("1")){
+                ShowDepartmentCourseForStudent();
+            }
+            else if (nextLine.equals("2")){
+                ShowDepartments();
+            }
+            else if (nextLine.equals("back")){
+                ShowDepartments();
+            }
+            else if (nextLine.equals("cancel")){
+                LogIn();
+            }
+            else {
+                ShowDepartmentCourseForStudent();
+            }
         }
     }
 }
