@@ -180,4 +180,21 @@ public class Logic {
         }
         return true;
     }
+
+    static boolean IsInStudentAttendedCourse(String code){
+        for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().size();i++){
+            if (App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).getCode().equals(code))
+                return true;
+        }
+        return false;
+    }
+
+    static void RemoveStudentAttendedCourse(String code){
+        for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().size();i++){
+            if (App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).getCode().equals(code)) {
+                App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().remove(i);
+                return;
+            }
+        }
+    }
 }

@@ -369,22 +369,66 @@ public class CLI {
 
     void ShowStudentAttendedCourses(){
         Logic.ShowStudentCourses();
+        String nextLine;
         if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.isEmpty()){
             System.out.println("Shoma Darsi Ra Akhz Nakarde Id , Lotfan Kalame Back Ra type Konid");
+            nextLine = sc.nextLine();
+            if (nextLine.equals("cancel")){
+                LogIn();
+                return;
+            }
+            else {
+                StudentMainPage();
+                return;
+            }
         }
         else {
             System.out.println("Ba Vared Kardan Kod Dars, Aan Dars Ra Hazf Konid");
+            nextLine = sc.nextLine();
+            if (nextLine.equals("cancel")){
+                LogIn();
+                return;
+            }
+            else if (nextLine.equals("back")){
+                StudentMainPage();
+                return;
+            }
+            if (Logic.IsInStudentAttendedCourse(nextLine)){
+                System.out.println("Dars Ba Movafaghiat Hazf Shod");
+                Logic.RemoveStudentAttendedCourse(nextLine);
+                System.out.println("1-Hazf Dars Digar");
+                System.out.println("2-Bazgasht Be Meno Ghabl");
+                nextLine = sc.nextLine();
+                if (nextLine.equals("1")){
+                    ShowStudentAttendedCourses();
+                }
+                else if (nextLine.equals("cancel")){
+                    LogIn();
+                }
+                else {
+                    StudentMainPage();
+                    return;
+                }
+            }
+            else {
+                System.out.println("Kod Dars Mored Nazar Yaft Nashod");
+                System.out.println("1-Hazf Dobare Dars");
+                System.out.println("2-Bazgasht Be Meno Ghabl");
+                nextLine = sc.nextLine();
+                if (nextLine.equals("1")){
+                    ShowStudentAttendedCourses();
+                    return;
+                }
+                else if (nextLine.equals("cancel")){
+                    LogIn();
+                    return;
+                }
+                else {
+                    StudentMainPage();
+                    return;
+                }
+            }
         }
-        String nextLine=sc.nextLine();
-        if (nextLine.equals("back")){
-            StudentMainPage();
-            return;
-        }
-        else if (nextLine.equals("cancel")){
-            LogIn();
-            return;
-        }
-        ///////////////////////////////////////////Code Dars Ra Vared Mikonad ////////////////////////////////////////////////
     }
 
     void ShowDepartments(){
