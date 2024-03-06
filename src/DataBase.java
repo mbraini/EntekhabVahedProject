@@ -245,7 +245,7 @@ public class DataBase {
 
     void RemoveCourse(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("Baray Hazf Dars, Naam Dars Ra Vared Konid");
+        System.out.println("Baray Hazf Dars, Code Dars Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
             App.cli.AdminGettingCoursesOfDepartment();
@@ -256,7 +256,7 @@ public class DataBase {
             return;
         }
         for (int i=0;i<departments.get(Logic.CurrentDepartment).courses.size();i++){
-            if (departments.get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)){
+            if (departments.get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
                 departments.get(Logic.CurrentDepartment).courses.remove(i);
                 System.out.println("Dars Ba Movafaghiat Hazf Shod");
                 System.out.println("1-Hazf Dars Digar Az Daneshkade");
@@ -264,10 +264,6 @@ public class DataBase {
                 nextLine=sc.nextLine();
                 if (nextLine.equals("1")){
                     RemoveCourse();
-                    return;
-                }
-                else if (nextLine.equals("back")){
-                    App.cli.AdminGettingCoursesOfDepartment();
                     return;
                 }
                 else if (nextLine.equals("cancel")){
@@ -280,16 +276,16 @@ public class DataBase {
                 }
             }
         }
-        System.out.println("Naam Dars Yaft Nashod!");
+        System.out.println("Code Dars Yaft Nashod!");
         RemoveCourse();
     }
 
     void ShowLoggedInStudentsForTheCourse(){
-        System.out.println(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName() + " Students :");
+        System.out.println(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName() + " Students With ID :");
         for (int i=0;i<LoggedInStudents.size();i++){
             for (int j=0;j<LoggedInStudents.get(i).courses.size();j++){
-                if (LoggedInStudents.get(i).courses.get(j).getName().equals(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName())){
-                    System.out.println("Daneshjoo Ba Shomare Daneshjooii :" + LoggedInStudents.get(i).getID());
+                if (LoggedInStudents.get(i).courses.get(j).getCode().equals(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                    System.out.println("\t" + LoggedInStudents.get(i).getID());
                 }
             }
         }

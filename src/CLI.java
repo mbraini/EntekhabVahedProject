@@ -48,10 +48,8 @@ public class CLI {
     }
 
     void AdminMainPage(){
+        Logic.ShowDepartments();
         System.out.println("Daneshkade Mored Nazar Ra Entekhab Knid");
-        for (int i=1;i<=App.dataBase.getDepartments().size();i++){
-            System.out.println(i + "-" + App.dataBase.getDepartments().get(i-1).name);
-        }
         String Next_line=sc.nextLine();
         if (Next_line.equals("back")){
             AdminLogIn();
@@ -120,7 +118,7 @@ public class CLI {
     }
 
     void AdminChooseCourseToCheckStudents(){
-        System.out.println("Naam Dars Mored Nazar Ra Vared Konid");
+        System.out.println("Lotfan Code Dars Mored Nazar Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
             AdminGettingCoursesOfDepartment();
@@ -131,7 +129,7 @@ public class CLI {
             return;
         }
         for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
-            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)) {
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)) {
                 Logic.CurrentCourse=i;
                 AdminCheckStudents();
                 return;
@@ -195,10 +193,6 @@ public class CLI {
         if (nextLine.equals("1")){
             AdminAddStudentToTheCourse();
         }
-        else if (nextLine.equals("back")){
-            AdminCheckStudents();
-            return;
-        }
         else if (nextLine.equals("cancel")){
             LogIn();
             return;
@@ -231,10 +225,6 @@ public class CLI {
                         if (nextLine.equals("1")){
                             AdminRemoveStudentFromTheCourse();
                         }
-                        else if (nextLine.equals("back")){
-                            AdminCheckStudents();
-                            return;
-                        }
                         else if (nextLine.equals("cancel")){
                             LogIn();
                             return;
@@ -254,7 +244,7 @@ public class CLI {
     }
 
     void AdminSizeP(){
-        System.out.println("Lotfan Naam Dars Ra Baray Afzayesh Zarfiat Vared Konid");
+        System.out.println("Lotfan Code Dars Ra Baray Afzayesh Zarfiat Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
             AdminGettingCoursesOfDepartment();
@@ -265,7 +255,7 @@ public class CLI {
             return;
         }
         for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
-            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getName().equals(nextLine)){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
                 try {
                     System.out.println("Afzayesh Zarfiat Be Meghdar :");
                     nextLine=sc.nextLine();
@@ -287,10 +277,6 @@ public class CLI {
                         AdminSizeP();
                         return;
                     }
-                    else if (nextLine.equals("back")){
-                        AdminGettingCoursesOfDepartment();
-                        return;
-                    }
                     else if (nextLine.equals("cancel")){
                         LogIn();
                         return;
@@ -306,7 +292,7 @@ public class CLI {
                 }
             }
         }
-        System.out.println("Naam Dars Ra Dorost Vared Konid");
+        System.out.println("Code Dars Ra Dorost Vared Konid");
         AdminSizeP();
     }
 
@@ -371,7 +357,7 @@ public class CLI {
         Logic.ShowStudentCourses();
         String nextLine;
         if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.isEmpty()){
-            System.out.println("Shoma Darsi Ra Akhz Nakarde Id , Lotfan Kalame Back Ra type Konid");
+            System.out.println("Shoma Darsi Ra Akhz Nakarde Id , Lotfan Kalame \"back\" Ra type Konid");
             nextLine = sc.nextLine();
             if (nextLine.equals("cancel")){
                 LogIn();
@@ -515,17 +501,11 @@ public class CLI {
             if (nextLine.equals("1")){
                 ShowDepartmentCourseForStudent();
             }
-            else if (nextLine.equals("2")){
-                ShowDepartments();
-            }
-            else if (nextLine.equals("back")){
-                ShowDepartments();
-            }
             else if (nextLine.equals("cancel")){
                 LogIn();
             }
             else {
-                ShowDepartmentCourseForStudent();
+                ShowDepartments();
             }
         }
     }
