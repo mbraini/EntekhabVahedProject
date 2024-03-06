@@ -11,12 +11,13 @@ public class Logic {
     static void ShowStudentCourses(){
         for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.size();i++){
             System.out.println(App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getName());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getProfessor());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCode());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getSize());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCredit());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getClassTime());
-            System.out.println("\t" + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime());
+            System.out.println("\t" + "Naam Ostad : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getProfessor());
+            System.out.println("\t" + "Code : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCode());
+            System.out.println("\t" + "Zarfiat : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getSize());
+            System.out.println("\t" + "Tedad Sabtnami : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCurrentSize());
+            System.out.println("\t" + "Tedad Vahed : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCredit());
+            System.out.println("\t" + "Zaman Class : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getClassTime());
+            System.out.println("\t" + "Zaman Emtehan : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime());
             if ((App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i) instanceof SpecializedCourse)){
                 System.out.println("\t" + "Takhasosi");
             }
@@ -28,7 +29,7 @@ public class Logic {
 
     static void ShowDepartments(){
         for (int i=0;i<App.dataBase.getDepartments().size();i++){
-            System.out.println((i+1) + "-" + App.dataBase.getDepartments().get(i).name);
+            System.out.println((i+1) + "-" + "Department Of " + App.dataBase.getDepartments().get(i).name);
         }
     }
 
@@ -39,6 +40,7 @@ public class Logic {
             System.out.println("\t\t" + "Naam Ostad : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getProfessor());
             System.out.println("\t\t" + "Code : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCode());
             System.out.println("\t\t" + "Zarfiat : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getSize());
+            System.out.println("\t\t" + "Tedad Sabtnami : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCurrentSize());
             System.out.println("\t\t" + "Tedad Vahed : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCredit());
             System.out.println("\t\t" + "Zaman Class : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime());
             System.out.println("\t\t" + "Zaman Emtehan : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getExamTime());
