@@ -479,7 +479,21 @@ public class CLI {
             }
         }
         System.out.println("Kod Dars Yaft Nashod");
-        ShowDepartmentCourseForStudent();
+        System.out.println("1-Akhz Dars Digar");
+        System.out.println("2-Bazgasht Be Meno Ghabl");
+        nextLine = sc.nextLine();
+        if (nextLine.equals("1")){
+            ShowDepartmentCourseForStudent();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            LogIn();
+            return;
+        }
+        else {
+            ShowDepartments();
+            return;
+        }
     }
 
     void StudentAttendCourse(){
