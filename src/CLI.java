@@ -179,8 +179,20 @@ public class CLI {
             if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
                 for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
                     if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
-                        App.dataBase.getLoggedInStudents().get(i).courses.remove(j);
-                        break;
+                        System.out.println("Daneshjoo Ghablan Dars Ra Akhz Karde Ast");
+                        System.out.println("1-Ezafe Kardan Daneshjoo Digar");
+                        System.out.println("2-Bazgasht Be Meno Ghabl");
+                        nextLine = sc.nextLine();
+                        if (nextLine.equals("1")){
+                            AdminAddStudentToTheCourse();
+                        }
+                        else if (nextLine.equals("cancel")){
+                            LogIn();
+                        }
+                        else {
+                            AdminCheckStudents();
+                        }
+                        return;
                     }
                 }
                 App.dataBase.getLoggedInStudents().get(i).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
