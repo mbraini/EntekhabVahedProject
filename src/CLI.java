@@ -201,6 +201,10 @@ public class CLI {
                     }
                 }
                 App.dataBase.getLoggedInStudents().get(i).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
+                App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).AddCurrentSize();
+                if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getSize()<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCurrentSize()){
+                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCurrentSize());
+                }
             }
         }
         System.out.println("Daneshjoo Mored Nazar Ba Movafaghiat Be Dars Ezafe Shod");
