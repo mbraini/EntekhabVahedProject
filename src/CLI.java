@@ -140,7 +140,12 @@ public class CLI {
     }
 
     void AdminCheckStudents(){
-        App.dataBase.ShowLoggedInStudentsForTheCourse();
+        if (!Logic.IsAttended()){
+            System.out.println("In Dars Tavasot Daneshjooii Akhz Nashode");
+        }
+        else {
+            App.dataBase.ShowLoggedInStudentsForTheCourse();
+        }
         System.out.println("1-Ezafe Kardan Daneshjoo Be Dars");
         System.out.println("2-Hazf Daneshjoo Az Dars");
         String nextLine=sc.nextLine();

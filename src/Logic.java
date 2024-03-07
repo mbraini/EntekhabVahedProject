@@ -210,4 +210,19 @@ public class Logic {
             }
         }
     }
+
+    static boolean IsAttended(){
+        int count = 0;
+        for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
+            for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).courses.size();j++){
+                if (App.dataBase.getLoggedInStudents().get(i).courses.get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                    count ++;
+                }
+            }
+        }
+        if (count != 0){
+            return true;
+        }
+        return false;
+    }
 }
