@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DataBase {
+    private static String StringClassTime;
+    private static String StringExamTime;
     private ArrayList<Department> departments;
     private ArrayList<Student> LoggedInStudents;
     DataBase(){
@@ -101,7 +103,129 @@ public class DataBase {
         LoggedInStudents.add(new Student(ID,new ArrayList<>()));
     }
 
+    void getClassTime(){
+        Scanner sc = new Scanner(System.in);
+        String day,start,end;
+        System.out.println("Rooz Class :");
+        day = sc.nextLine();
+        if (day.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (day.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!day.equals("Sunday") && !day.equals("Monday") && !day.equals("Tuesday") && !day.equals("Wednesday") && !day.equals("Thursday") && !day.equals("Friday") && !day.equals("Saturday")){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getClassTime();
+            return;
+        }
+        System.out.println("Zaman Shoroo Class :");
+        start = sc.nextLine();
+        if (start.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (start.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!Logic.CheckTime(start)){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getClassTime();
+            return;
+        }
+        System.out.println("Zaman Payan Class :");
+        end = sc.nextLine();
+        if (end.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (end.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!Logic.CheckTime(end)){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getClassTime();
+            return;
+        }
+        StringClassTime += start + " to " + end + " " + day;
+        System.out.println("1-Ezafe Kardan Saat Digar");
+        System.out.println("2-Por Kardan Baghie Moshakhasat");
+        String nextLine = sc.nextLine();
+        if (nextLine.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        else if (nextLine.equals("1")){
+            StringClassTime += "/";
+            getClassTime();
+        }
+        else {
+            return;
+        }
+    }
+
+    void getExamTime(){
+        Scanner sc = new Scanner(System.in);
+        String day,start,end;
+        System.out.println("Rooz Emtehan :");
+        day = sc.nextLine();
+        if (day.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (day.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!Logic.CheckDay(day)){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getExamTime();
+            return;
+        }
+        System.out.println("Zaman Shoroo Emtehan :");
+        start = sc.nextLine();
+        if (start.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (start.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!Logic.CheckTime(start)){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getExamTime();
+            return;
+        }
+        System.out.println("Zaman Payan Emtehan");
+        end = sc.nextLine();
+        if (end.equals("back")){
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
+        else if (end.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        if (!Logic.CheckTime(end)){
+            System.out.println("Ba Format Moshakhas Shode Hamkhani Nadarad");
+            getExamTime();
+            return;
+        }
+        StringExamTime += start + " to " + end + " " + day;
+    }
+
     void AddCourse(){
+        StringClassTime = "";
+        StringExamTime = "";
         Scanner sc=new Scanner(System.in);
         int size=-1,credit=-1;
         System.out.println("Loftan Etelaat Dars Mored Nazar Ra Kamel Vared Konid");
@@ -172,29 +296,20 @@ public class DataBase {
             return;
         }
         System.out.println("Zaman Class :");
-        System.out.println("Lotfan In Bakhsh Ra Dorost Entekhab Konid ,Baray Mesal :");
-        System.out.println("\t 10:30 to 12:30 Sunday/10:30 to 12:30 Tuesday");
-        String ClassTime=sc.nextLine();
-        if (ClassTime.equals("back")){
-            App.cli.AdminGettingCoursesOfDepartment();
-            return;
-        }
-        else if (ClassTime.equals("cancel")){
-            App.cli.LogIn();
-            return;
-        }
-        System.out.println("Zaman Emtehan :");
-        System.out.println("Lotfan In Bakhsh Ra Dorost Entekhab Konid ,Baray Mesal :");
-        System.out.println("\t 8:00 to 11:00 1403/03/29");
-        String ExamTime=sc.nextLine();
-        if (ExamTime.equals("back")){
-            App.cli.AdminGettingCoursesOfDepartment();
-            return;
-        }
-        else if (ExamTime.equals("cancel")){
-            App.cli.LogIn();
-            return;
-        }
+        System.out.println("\tLotfan Mesl Nemoone Vared Konid");
+        System.out.println("\tRooz Class: Monday");
+        System.out.println("\tZaman Shoroo Class : 9:00");
+        System.out.println("\tZaman Payan Class : 14:05");
+        getClassTime();
+        System.out.println("Zaman Entehan :");
+        System.out.println("\tLotfan Mesl Nemoone Vared Konid");
+        System.out.println("\tRooz Emtehan: 1402/03/09");
+        System.out.println("\tZaman Shoroo Emtehan : 9:00");
+        System.out.println("\tZaman Payan Emtehan : 14:05");
+        getExamTime();
+
+        String ExamTime=StringExamTime;
+        String ClassTime = StringClassTime;
         ArrayList<String> classTime=new ArrayList<>();
         for (int i=0;i<ClassTime.length();i++){
             if (ClassTime.charAt(i)=='/'){

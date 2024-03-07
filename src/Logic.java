@@ -225,4 +225,50 @@ public class Logic {
         }
         return false;
     }
+
+    static boolean CheckTime(String time){
+        if (!time.contains(":")){
+            return false;
+        }
+        String first,second;
+        try{
+            first = time.substring(0,time.indexOf(":"));
+            second = time.substring(time.indexOf(":") + 1);
+            if (second.length()!=2){
+                return false;
+            }
+            int IntFirst = Integer.valueOf(first);
+            int IntSecond = Integer.valueOf(second);
+            if (IntFirst >= 24 || IntFirst < 0 || IntSecond >= 60 || IntSecond < 0){
+                return false;
+            }
+        }
+        catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    static boolean CheckDay(String time){
+        String year,month,day;
+        try {
+            year = time.substring(0,time.indexOf("/"));
+            time = time.substring(time.indexOf("/") + 1);
+            month = time.substring(0,time.indexOf("/"));
+            time = time.substring(time.indexOf("/") + 1);
+            day = time;
+            if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+                return false;
+            int IntYear = Integer.valueOf(year);
+            int IntMonth = Integer.valueOf(month);
+            int IntDay = Integer.valueOf(day);
+            if (IntDay > 31 || IntDay <= 0 || IntMonth > 12 || IntMonth <= 0){
+                return false;
+            }
+        }
+        catch (Exception e){
+            return false;
+        }
+        return true;
+    }
 }
