@@ -16,8 +16,13 @@ public class Logic {
             System.out.println("\t" + "Zarfiat : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getSize());
             System.out.println("\t" + "Tedad Sabtnami : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCurrentSize());
             System.out.println("\t" + "Tedad Vahed : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getCredit());
-            System.out.println("\t" + "Zaman Class : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getClassTime());
-            System.out.println("\t" + "Zaman Emtehan : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime());
+            System.out.print("\tZaman Class : ");
+            for (int j = 0;j < App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().size();j++){
+                System.out.print(App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().get(j));
+                if (j+1 != App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().size())
+                    System.out.print("/");
+            }
+            System.out.println();            System.out.println("\t" + "Zaman Emtehan : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime());
             if ((App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i) instanceof SpecializedCourse)){
                 System.out.println("\t" + "Takhasosi");
             }
@@ -42,7 +47,13 @@ public class Logic {
             System.out.println("\t\t" + "Zarfiat : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getSize());
             System.out.println("\t\t" + "Tedad Sabtnami : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCurrentSize());
             System.out.println("\t\t" + "Tedad Vahed : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getCredit());
-            System.out.println("\t\t" + "Zaman Class : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime());
+            System.out.print("\t\tZaman Class : ");
+            for (int j = 0;j < App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().size();j++){
+                System.out.print(App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().get(j));
+                if (j+1 != App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getClassTime().size())
+                    System.out.print("/");
+            }
+            System.out.println();
             System.out.println("\t\t" + "Zaman Emtehan : " + App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i).getExamTime());
             if (App.dataBase.getDepartments().get(CurrentDepartment).courses.get(i) instanceof SpecializedCourse){
                 System.out.println("\t\t" + "Noa Dars : " + "Takhasosi");

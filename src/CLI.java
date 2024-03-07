@@ -114,7 +114,7 @@ public class CLI {
     }
 
     void AdminRemoveCourse(){
-        App.dataBase.RemoveCourse();
+        App.dataBase.RemoveCourse(); /////////////////////////////////////////////Remove The Course Form Logged In Students Course
     }
 
     void AdminChooseCourseToCheckStudents(){
@@ -316,7 +316,7 @@ public class CLI {
             App.dataBase.AddLoggedInStudent(ID);
             for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
                 if (App.dataBase.getLoggedInStudents().get(i).getID().equals(ID)){
-                    Logic.CurrentStudent=App.dataBase.getLoggedInStudents().size()-1;
+                    Logic.CurrentStudent=i;
                     StudentMainPage();
                     return;
                 }
@@ -486,7 +486,18 @@ public class CLI {
         for (int i=0;i<App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.size();i++){
             if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.get(i).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
                 System.out.println("Shoma Ghablan In Dars Ra Akhz Karde Id");
-                ShowDepartmentCourseForStudent();
+                System.out.println("1-Akhz Dars Digar");
+                System.out.println("2-Bazgasht Be Meno Ghabl");
+                String nextLine=sc.nextLine();
+                if (nextLine.equals("1")){
+                    ShowDepartmentCourseForStudent();
+                }
+                else if (nextLine.equals("cancel")){
+                    LogIn();
+                }
+                else {
+                    ShowDepartments();
+                }
                 return;
             }
         }
@@ -494,7 +505,22 @@ public class CLI {
             App.dataBase.AttendCourse();
         }
         else {
-            System.out.println("Shoma Nemitavanid Dars Ra Akhz Konid");
+            System.out.println("Shoma Nemitavanid Dars Ra Akhz Konid ,Be Dalil :");
+            if (!Logic.CheckSizeForAttend()){
+                System.out.println("\t - Zarfiat Kafi Baray In Dars Vojood Nadarad");
+            }
+            if (!Logic.CheckGeneralCourseForAttend()){
+                System.out.println("\t - Tedad Vahed Hay Omoomi Shoma Az 5 Bishtar Mishavad");
+            }
+            if (!Logic.CourseCreditLimitation()){
+                System.out.println("\t - Tedad VahedHay Shoma Az 20 Bishtar Mishavad");
+            }
+            if (!Logic.CourseClassInterference()){
+                System.out.println("\t - In Dars Ba Yeki Az Dars Hay Shoma Tadakhol Darad Dar Zaman Class");
+            }
+            if (!Logic.CourseExamInterference()){
+                System.out.println("\t - In Dars Ba Yeki Az Dars Hay Shoma Tadakhol Darad Dar Zaman Emtehan");
+            }
             System.out.println("1-Akhz Dars Digar");
             System.out.println("2-Bazgasht Be Meno Ghabl");
             String nextLine=sc.nextLine();

@@ -95,7 +95,6 @@ public class DataBase {
     void AddLoggedInStudent(String ID){
         for (int i=0;i<LoggedInStudents.size();i++){
             if (LoggedInStudents.get(i).getID().equals(ID)){
-                Logic.CurrentStudent=i;
                 return;
             }
         }
@@ -173,6 +172,8 @@ public class DataBase {
             return;
         }
         System.out.println("Zaman Class :");
+        System.out.println("Lotfan In Bakhsh Ra Dorost Entekhab Konid ,Baray Mesal :");
+        System.out.println("\t 10:30 to 12:30 Sunday/10:30 to 12:30 Tuesday");
         String ClassTime=sc.nextLine();
         if (ClassTime.equals("back")){
             App.cli.AdminGettingCoursesOfDepartment();
@@ -183,6 +184,8 @@ public class DataBase {
             return;
         }
         System.out.println("Zaman Emtehan :");
+        System.out.println("Lotfan In Bakhsh Ra Dorost Entekhab Konid ,Baray Mesal :");
+        System.out.println("\t 8:00 to 11:00 1403/03/29");
         String ExamTime=sc.nextLine();
         if (ExamTime.equals("back")){
             App.cli.AdminGettingCoursesOfDepartment();
@@ -224,7 +227,7 @@ public class DataBase {
         }
         System.out.println("Dars Jadid Sabt Shod");
         System.out.println("1-Ezafe Kardan Dars Jadid");
-        System.out.println("2-Bargasht Be Safhe Ghabl");
+        System.out.println("2-Bargasht Be Meno Ghabl");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
             AddCourse();
@@ -257,6 +260,7 @@ public class DataBase {
         }
         for (int i=0;i<departments.get(Logic.CurrentDepartment).courses.size();i++){
             if (departments.get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
+                FixLoggedInStudentCourse(nextLine);
                 departments.get(Logic.CurrentDepartment).courses.remove(i);
                 System.out.println("Dars Ba Movafaghiat Hazf Shod");
                 System.out.println("1-Hazf Dars Digar Az Daneshkade");
@@ -280,6 +284,17 @@ public class DataBase {
         RemoveCourse();
     }
 
+    void FixLoggedInStudentCourse(String code){
+        for (int i = 0;i < LoggedInStudents.size();i++){
+            for (int j = 0;j < LoggedInStudents.get(i).courses.size();j++){
+                if (LoggedInStudents.get(i).courses.get(j).getCode().equals(code)){
+                    LoggedInStudents.get(i).courses.remove(j);
+                    break;
+                }
+            }
+        }
+    }
+
     void ShowLoggedInStudentsForTheCourse(){
         System.out.println(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName() + " Students With ID :");
         for (int i=0;i<LoggedInStudents.size();i++){
@@ -300,10 +315,6 @@ public class DataBase {
         Scanner sc=new Scanner(System.in);
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
-            App.cli.ShowDepartmentCourseForStudent();
-            return;
-        }
-        else if (nextLine.equals("back")){
             App.cli.ShowDepartmentCourseForStudent();
             return;
         }
