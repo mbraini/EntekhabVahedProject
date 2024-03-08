@@ -204,6 +204,7 @@ public class Logic {
     public static void RemoveStudentAttendedCourse(String code){
         for (int i=0;i<App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().size();i++){
             if (App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).getCode().equals(code)) {
+                App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).setCurrentSize(App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().get(i).getCurrentSize()-1);
                 App.dataBase.getLoggedInStudents().get(CurrentStudent).getCourses().remove(i);
                 return;
             }

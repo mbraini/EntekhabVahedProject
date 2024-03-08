@@ -242,6 +242,7 @@ public class CLI {
             if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
                 for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
                     if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCode())){
+                        App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).setCurrentSize(App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCurrentSize()-1);
                         App.dataBase.getLoggedInStudents().get(i).getCourses().remove(j);
                         System.out.println("Hazf Daneshjoo Az Dars Ba Movafaghiat Anjam Shod");
                         System.out.println("1-Hazf Daneshjoo Digar");
