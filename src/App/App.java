@@ -2,7 +2,7 @@ package App;
 import CLI.CLI;
 import DataBase.DataBase;
 
-public class App {
+public class App implements Runnable {
     public static CLI cli;
     public static DataBase dataBase;
 

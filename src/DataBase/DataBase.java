@@ -277,6 +277,8 @@ public class DataBase {
                 return;
             }
             size=Integer.valueOf(nextLine);
+            if (size < 0)
+                throw new NumberFormatException();
             System.out.println("tedad vahed");
             nextLine=sc.nextLine();
             if (nextLine.equals("back")){
@@ -288,6 +290,9 @@ public class DataBase {
                 return;
             }
             credit=Integer.valueOf(nextLine);
+            if (credit <= 0){
+                throw new NumberFormatException();
+            }
         }
         catch (NumberFormatException e){
             System.out.println("Eshtebah Vared Kardid, Lotfan dobare Etelaat Dars Ra Vared Konid");

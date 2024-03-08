@@ -7,9 +7,6 @@ import java.util.Scanner;
 public class CLI {
     private final Scanner sc=new Scanner(System.in);
 
-    public CLI() {
-
-    }
 
     public void LogIn(){
         System.out.println("1-Admin");
