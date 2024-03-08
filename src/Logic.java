@@ -24,10 +24,10 @@ public class Logic {
             }
             System.out.println();            System.out.println("\t" + "Zaman Emtehan : " + App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i).getExamTime());
             if ((App.dataBase.getLoggedInStudents().get(CurrentStudent).courses.get(i) instanceof SpecializedCourse)){
-                System.out.println("\t" + "Takhasosi");
+                System.out.println("\t" + "Noa Dars : Takhasosi");
             }
             else {
-                System.out.println("\t" + "Omoomi");
+                System.out.println("\t" + "Noa Dars : Omoomi");
             }
         }
     }

@@ -396,7 +396,21 @@ public class DataBase {
             }
         }
         System.out.println("Code Dars Yaft Nashod!");
-        RemoveCourse();
+        System.out.println("1-Hazf Dars Digar");
+        System.out.println("2-Bazgasht Be Meno Ghabl");
+        nextLine = sc.nextLine();
+        if (nextLine.equals("1")){
+            App.cli.AdminRemoveCourse();
+            return;
+        }
+        else if (nextLine.equals("cancel")){
+            App.cli.LogIn();
+            return;
+        }
+        else {
+            App.cli.AdminGettingCoursesOfDepartment();
+            return;
+        }
     }
 
     void FixLoggedInStudentCourse(String code){

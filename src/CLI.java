@@ -351,8 +351,8 @@ public class CLI {
     }
 
     void StudentMainPage(){
-        System.out.println("1-List Droos Sabtnami");
-        System.out.println("2-List Droos Erae Shode");
+        System.out.println("1-List Doroos Sabtnami");
+        System.out.println("2-List Doroos Erae Shode");
         String nextLine=sc.nextLine();
         if (nextLine.equals("1")){
             ShowStudentAttendedCourses();
