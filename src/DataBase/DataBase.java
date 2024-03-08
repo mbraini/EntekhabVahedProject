@@ -1,3 +1,7 @@
+package DataBase;
+import App.App;
+import Logic.Logic;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -8,12 +12,12 @@ public class DataBase {
     private static String StringExamTime;
     private ArrayList<Department> departments;
     private ArrayList<Student> LoggedInStudents;
-    DataBase(){
+    public DataBase(){
         departments=new ArrayList<>();
         LoggedInStudents=new ArrayList<>();
         String depName="";
         try {
-            File HardCore=new File("src/HardCore.txt");
+            File HardCore=new File("E:\\Univercity\\Term 2\\AP\\HW1\\EntekhabVahed\\src\\DataBase\\HardCore.txt");
             FileInputStream fis=new FileInputStream(HardCore);
             Scanner sc=new Scanner(fis);
             while (sc.hasNextLine()){
@@ -94,7 +98,7 @@ public class DataBase {
         LoggedInStudents = loggedInStudents;
     }
 
-    void AddLoggedInStudent(String ID){
+    public void AddLoggedInStudent(String ID){
         for (int i=0;i<LoggedInStudents.size();i++){
             if (LoggedInStudents.get(i).getID().equals(ID)){
                 return;
@@ -103,7 +107,7 @@ public class DataBase {
         LoggedInStudents.add(new Student(ID,new ArrayList<>()));
     }
 
-    void getClassTime(){
+    public void getClassTime(){
         Scanner sc = new Scanner(System.in);
         String day,start,end;
         System.out.println("Rooz Class :");
@@ -172,7 +176,7 @@ public class DataBase {
         }
     }
 
-    void getExamTime(){
+    public void getExamTime(){
         Scanner sc = new Scanner(System.in);
         String day,start,end;
         System.out.println("Rooz Emtehan :");
@@ -223,7 +227,7 @@ public class DataBase {
         StringExamTime += start + " to " + end + " " + day;
     }
 
-    void AddCourse(){
+    public void AddCourse(){
         StringClassTime = "";
         StringExamTime = "";
         Scanner sc=new Scanner(System.in);
@@ -361,7 +365,7 @@ public class DataBase {
         }
     }
 
-    void RemoveCourse(){
+    public void RemoveCourse(){
         Scanner sc=new Scanner(System.in);
         System.out.println("Baray Hazf Dars, Code Dars Ra Vared Konid");
         String nextLine=sc.nextLine();
@@ -373,7 +377,7 @@ public class DataBase {
             App.cli.LogIn();
             return;
         }
-        for (int i=0;i<departments.get(Logic.CurrentDepartment).courses.size();i++){
+        for (int i = 0; i<departments.get(Logic.CurrentDepartment).courses.size(); i++){
             if (departments.get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
                 FixLoggedInStudentCourse(nextLine);
                 departments.get(Logic.CurrentDepartment).courses.remove(i);
@@ -413,7 +417,7 @@ public class DataBase {
         }
     }
 
-    void FixLoggedInStudentCourse(String code){
+    public void FixLoggedInStudentCourse(String code){
         for (int i = 0;i < LoggedInStudents.size();i++){
             for (int j = 0;j < LoggedInStudents.get(i).courses.size();j++){
                 if (LoggedInStudents.get(i).courses.get(j).getCode().equals(code)){
@@ -424,7 +428,7 @@ public class DataBase {
         }
     }
 
-    void ShowLoggedInStudentsForTheCourse(){
+    public void ShowLoggedInStudentsForTheCourse(){
         System.out.println(departments.get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getName() + " Students With ID :");
         for (int i=0;i<LoggedInStudents.size();i++){
             for (int j=0;j<LoggedInStudents.get(i).courses.size();j++){
@@ -435,7 +439,7 @@ public class DataBase {
         }
     }
 
-    void AttendCourse(){
+    public void AttendCourse(){
         App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).AddCurrentSize();
         LoggedInStudents.get(Logic.CurrentStudent).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
         System.out.println("Dars Mored Nazar Ba Movafaghiat Akhz Shod");

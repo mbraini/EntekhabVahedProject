@@ -1,3 +1,7 @@
+package DataBase;
+
+import DataBase.Course;
+
 import java.util.ArrayList;
 public class Student {
     String ID;

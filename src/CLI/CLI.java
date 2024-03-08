@@ -1,4 +1,8 @@
-import java.util.ArrayList;
+package CLI;
+
+import App.App;
+import Logic.Logic;
+
 import java.util.Scanner;
 public class CLI {
     private final Scanner sc=new Scanner(System.in);
@@ -7,7 +11,7 @@ public class CLI {
 
     }
 
-    void LogIn(){
+    public void LogIn(){
         System.out.println("1-Admin");
         System.out.println("2-Student");
         System.out.println("Lotfan Moshakhas Konid Ba Kodam Onvan Vared Mishavid");
@@ -27,7 +31,7 @@ public class CLI {
         }
     }
 
-    void AdminLogIn(){
+    public void AdminLogIn(){
         System.out.println("lotfan Nam Karbari Khod Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("Admin")){
@@ -47,7 +51,7 @@ public class CLI {
         }
     }
 
-    void AdminMainPage(){
+    public void AdminMainPage(){
         Logic.ShowDepartments();
         System.out.println("Daneshkade Mored Nazar Ra Entekhab Knid");
         String Next_line=sc.nextLine();
@@ -61,7 +65,7 @@ public class CLI {
         }
         try {
             int nextLine=Integer.valueOf(Next_line);
-            if (nextLine>App.dataBase.getDepartments().size() || nextLine<1){
+            if (nextLine> App.dataBase.getDepartments().size() || nextLine<1){
                 throw new IllegalArgumentException();
             }
             else {
@@ -76,7 +80,7 @@ public class CLI {
         }
     }
 
-    void AdminGettingCoursesOfDepartment(){
+    public void AdminGettingCoursesOfDepartment(){
         Logic.ShowCoursesOfDepartmentWithDetail();
         System.out.println("1-Ezafe Kardan Dars Be DaneshKade");
         System.out.println("2-Hazf Dars Az Daneshkade");
@@ -109,15 +113,15 @@ public class CLI {
         }
     }
 
-    void AdminAddCourseToDepartment(){
+    public void AdminAddCourseToDepartment(){
         App.dataBase.AddCourse();
     }
 
-    void AdminRemoveCourse(){
-        App.dataBase.RemoveCourse(); /////////////////////////////////////////////Remove The Course Form Logged In Students Course
+    public void AdminRemoveCourse(){
+        App.dataBase.RemoveCourse(); /////////////////////////////////////////////Remove The DataBase.Course Form Logged In Students DataBase.Course
     }
 
-    void AdminChooseCourseToCheckStudents(){
+    public void AdminChooseCourseToCheckStudents(){
         System.out.println("Lotfan Code Dars Mored Nazar Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
@@ -128,8 +132,8 @@ public class CLI {
             LogIn();
             return;
         }
-        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
-            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)) {
+        for (int i = 0; i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().size(); i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(i).getCode().equals(nextLine)) {
                 Logic.CurrentCourse=i;
                 AdminCheckStudents();
                 return;
@@ -139,7 +143,7 @@ public class CLI {
         AdminChooseCourseToCheckStudents();
     }
 
-    void AdminCheckStudents(){
+    public void AdminCheckStudents(){
         if (!Logic.IsAttended()){
             System.out.println("In Dars Tavasot Daneshjooii Akhz Nashode");
         }
@@ -168,7 +172,7 @@ public class CLI {
         }
     }
 
-    void AdminAddStudentToTheCourse(){
+    public void AdminAddStudentToTheCourse(){
         System.out.println("Baray Ezafe Kardan Daneshjoo Be Dars, Shomare Daneshjooii Mored Nazar Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
@@ -183,7 +187,7 @@ public class CLI {
         for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
             if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
                 for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
-                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCode())){
                         System.out.println("Daneshjoo Ghablan Dars Ra Akhz Karde Ast");
                         System.out.println("1-Ezafe Kardan Daneshjoo Digar");
                         System.out.println("2-Bazgasht Be Meno Ghabl");
@@ -200,10 +204,10 @@ public class CLI {
                         return;
                     }
                 }
-                App.dataBase.getLoggedInStudents().get(i).courses.add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse));
-                App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).AddCurrentSize();
-                if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getSize()<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCurrentSize()){
-                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCurrentSize());
+                App.dataBase.getLoggedInStudents().get(i).getCourses().add(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse));
+                App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).AddCurrentSize();
+                if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getSize()<App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCurrentSize()){
+                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCurrentSize());
                 }
             }
         }
@@ -223,7 +227,7 @@ public class CLI {
         }
     }
 
-    void AdminRemoveStudentFromTheCourse(){
+    public void AdminRemoveStudentFromTheCourse(){
         System.out.println("Baray Hazf Kardan Daneshjoo Az Dars, Shomare Daneshjooii Mored Nazar Ra Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
@@ -237,8 +241,8 @@ public class CLI {
         for (int i=0;i<App.dataBase.getLoggedInStudents().size();i++){
             if (App.dataBase.getLoggedInStudents().get(i).getID().equals(nextLine)){
                 for (int j=0;j<App.dataBase.getLoggedInStudents().get(i).getCourses().size();j++){
-                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
-                        App.dataBase.getLoggedInStudents().get(i).courses.remove(j);
+                    if (App.dataBase.getLoggedInStudents().get(i).getCourses().get(j).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCode())){
+                        App.dataBase.getLoggedInStudents().get(i).getCourses().remove(j);
                         System.out.println("Hazf Daneshjoo Az Dars Ba Movafaghiat Anjam Shod");
                         System.out.println("1-Hazf Daneshjoo Digar");
                         System.out.println("2-Bazgasht Be Meno Ghabl");
@@ -264,7 +268,7 @@ public class CLI {
         AdminRemoveStudentFromTheCourse();
     }
 
-    void AdminSizeP(){
+    public void AdminSizeP(){
         System.out.println("Lotfan Code Dars Ra Baray Afzayesh Zarfiat Vared Konid");
         String nextLine=sc.nextLine();
         if (nextLine.equals("back")){
@@ -275,8 +279,8 @@ public class CLI {
             LogIn();
             return;
         }
-        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
-            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
+        for (int i = 0; i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().size(); i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(i).getCode().equals(nextLine)){
                 try {
                     System.out.println("Afzayesh Zarfiat Be Meghdar :");
                     nextLine=sc.nextLine();
@@ -289,7 +293,7 @@ public class CLI {
                         return;
                     }
                     int SizeP=Integer.valueOf(nextLine);
-                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getSize()+SizeP);
+                    App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(i).setSize(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(i).getSize()+SizeP);
                     System.out.println("Afzayesh Zarfiat Ba Movafaghiat Anjam Shod");
                     System.out.println("1-Afzayesh Zarfiat Dars Digar");
                     System.out.println("2-Bazgasht Be Meno Ghabl");
@@ -317,7 +321,7 @@ public class CLI {
         AdminSizeP();
     }
 
-    void StudentLogIn(){
+    public void StudentLogIn(){
         System.out.println("Lotfan Shomare Daneshjooii Khod Ra Vared Konid");
         try {
             String ID=sc.nextLine();
@@ -350,7 +354,7 @@ public class CLI {
         }
     }
 
-    void StudentMainPage(){
+    public void StudentMainPage(){
         System.out.println("1-List Doroos Sabtnami");
         System.out.println("2-List Doroos Erae Shode");
         String nextLine=sc.nextLine();
@@ -377,7 +381,7 @@ public class CLI {
     void ShowStudentAttendedCourses(){
         Logic.ShowStudentCourses();
         String nextLine;
-        if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.isEmpty()){
+        if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).getCourses().isEmpty()){
             System.out.println("Shoma Darsi Ra Akhz Nakarde Id , Lotfan Kalame \"back\" Ra type Konid");
             nextLine = sc.nextLine();
             if (nextLine.equals("cancel")){
@@ -438,7 +442,7 @@ public class CLI {
         }
     }
 
-    void ShowDepartments(){
+    public void ShowDepartments(){
         Logic.ShowDepartments();
         System.out.println("Daneshkade Mored Nazar Ra Entekhab Konid");
         try {
@@ -466,7 +470,7 @@ public class CLI {
         }
     }
 
-    void ShowDepartmentCourseForStudent(){
+    public void ShowDepartmentCourseForStudent(){
         Logic.ShowCoursesOfDepartmentWithDetail();
         System.out.println("Lotfan Ba Vared Kardan Kod Dars, Dars Mored Nazar Ra Akhz Konid");
         String nextLine=sc.nextLine();
@@ -478,8 +482,8 @@ public class CLI {
             LogIn();
             return;
         }
-        for (int i=0;i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.size();i++){
-            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(i).getCode().equals(nextLine)){
+        for (int i = 0; i<App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().size(); i++){
+            if (App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(i).getCode().equals(nextLine)){
                 Logic.CurrentCourse=i;
                 StudentAttendCourse();
                 return;
@@ -503,9 +507,9 @@ public class CLI {
         }
     }
 
-    void StudentAttendCourse(){
-        for (int i=0;i<App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.size();i++){
-            if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).courses.get(i).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).courses.get(Logic.CurrentCourse).getCode())){
+    public void StudentAttendCourse(){
+        for (int i = 0; i<App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).getCourses().size(); i++){
+            if (App.dataBase.getLoggedInStudents().get(Logic.CurrentStudent).getCourses().get(i).getCode().equals(App.dataBase.getDepartments().get(Logic.CurrentDepartment).getCourses().get(Logic.CurrentCourse).getCode())){
                 System.out.println("Shoma Ghablan In Dars Ra Akhz Karde Id");
                 System.out.println("1-Akhz Dars Digar");
                 System.out.println("2-Bazgasht Be Meno Ghabl");
