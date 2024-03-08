@@ -115,7 +115,7 @@ public class CLI {
     }
 
     public void AdminRemoveCourse(){
-        App.dataBase.RemoveCourse(); /////////////////////////////////////////////Remove The DataBase.Course Form Logged In Students DataBase.Course
+        App.dataBase.RemoveCourse();
     }
 
     public void AdminChooseCourseToCheckStudents(){
